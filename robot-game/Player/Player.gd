@@ -25,6 +25,14 @@ var TotalAttackDuration: float = 0.25
 var attack_duration_timer: float = 0.0
 var attack_distance: float = 90.0
 
+const DASH_SPEED: float = 700.0
+const DASH_DURATION: float = 0.15
+const DASH_COOLDOWN: float = 0.4
+
+var dash_timer: float = 0.0
+var dash_cooldown_timer: float = 0.0
+var dash_direction: Vector2 = Vector2.ZERO
+
 func _ready() -> void:
 	add_to_group("player")
 	AttackSprite.modulate.a = 0.0
@@ -33,6 +41,25 @@ func _ready() -> void:
 	AttackArea.connect("body_entered", _attack_area_hit)
 
 func _physics_process(delta: float) -> void:
+	# Dash timers
+	dash_timer = max(dash_timer - delta, 0.0)
+	dash_cooldown_timer = max(dash_cooldown_timer - delta, 0.0)
+
+	# Start dash
+	if Input.is_action_just_pressed("dash") and dash_cooldown_timer == 0.0:
+		dash_timer = DASH_DURATION
+		dash_cooldown_timer = DASH_COOLDOWN
+		
+		dash_direction = look_dir.normalized()
+		if dash_direction == Vector2.ZERO:
+			dash_direction = Vector2(sign(velocity.x) if velocity.x != 0 else 1, 0)
+
+	# DASH OVERRIDE
+	if dash_timer > 0.0:
+		velocity = dash_direction * DASH_SPEED
+		move_and_slide()
+		return
+
 	var x_input: float = Input.get_axis("left", "right") 
 	var velocity_weight_x: float = 1.0 - exp(-(ACCELERATION if x_input else FRICTION) * delta)
 	velocity.x = lerp(velocity.x, x_input * SPEED, velocity_weight_x)
