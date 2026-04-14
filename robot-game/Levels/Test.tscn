@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://cll0paksyh8pg"]
+
+[ext_resource type="PackedScene" uid="uid://c05dos5uqad4d" path="res://Player/Player.tscn" id="1_n7cfa"]
+
+[sub_resource type="GDScript" id="GDScript_myinc"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="BoxMesh" id="BoxMesh_rvu7i"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_myinc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_myinc"]
+size = Vector2(1028.5, 141)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_njov2"]
+size = Vector2(44.375, 767.5)
+
+[sub_resource type="SphereMesh" id="SphereMesh_8tn2x"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aq4fw"]
+radius = 56.008926
+
+[node name="Test" type="Node2D" unique_id=1104303678]
+position = Vector2(0, 151)
+script = SubResource("GDScript_myinc")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=660183255]
+
+[node name="Room" type="StaticBody2D" parent="." unique_id=1600489153]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Room" unique_id=1681015855]
+position = Vector2(4, 261)
+scale = Vector2(1036.2501, 148)
+mesh = SubResource("BoxMesh_rvu7i")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Room" unique_id=548231729]
+position = Vector2(-381.875, -78)
+scale = Vector2(44.249996, 609.25)
+mesh = SubResource("BoxMesh_myinc")
+
+[node name="MeshInstance2D3" type="MeshInstance2D" parent="Room" unique_id=260757028]
+position = Vector2(380.25, -81.375)
+scale = Vector2(44.249996, 609.25)
+mesh = SubResource("BoxMesh_myinc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room" unique_id=2006093133]
+position = Vector2(3.125, 261.5)
+shape = SubResource("RectangleShape2D_myinc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Room" unique_id=1666272968]
+position = Vector2(-383.25, -2)
+shape = SubResource("RectangleShape2D_njov2")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Room" unique_id=258554470]
+position = Vector2(382.1875, 6.625)
+shape = SubResource("RectangleShape2D_njov2")
+
+[node name="CharacterBody2D" parent="." unique_id=1816955753 instance=ExtResource("1_n7cfa")]
+position = Vector2(-168, 103)
+
+[node name="RingATK" type="Area2D" parent="." unique_id=1067776680 groups=["pogoable"]]
+position = Vector2(242, 136)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="RingATK" unique_id=165295993]
+position = Vector2(0.49999642, 1)
+scale = Vector2(121.13721, 123.25002)
+mesh = SubResource("SphereMesh_8tn2x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RingATK" unique_id=228629235]
+shape = SubResource("CircleShape2D_aq4fw")

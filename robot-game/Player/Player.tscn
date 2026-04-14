@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://c05dos5uqad4d"]
+
+[ext_resource type="Script" uid="uid://b0eg7vqgcmvo5" path="res://Player/Player.gd" id="1_3qydi"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0rwas"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0rwas"]
+size = Vector2(40, 51)
+
+[sub_resource type="PrismMesh" id="PrismMesh_0rwas"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xhfnw"]
+size = Vector2(66, 51)
+
+[node name="Player" type="CharacterBody2D" unique_id=1816955753]
+script = ExtResource("1_3qydi")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=305121934]
+position = Vector2(0, 0.5)
+scale = Vector2(40, 51)
+mesh = SubResource("BoxMesh_0rwas")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=633056245]
+shape = SubResource("RectangleShape2D_0rwas")
+
+[node name="Attack" type="Node2D" parent="." unique_id=191998518]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Attack" unique_id=1530516430]
+rotation = -1.5707964
+scale = Vector2(51.265556, 35.203354)
+mesh = SubResource("PrismMesh_0rwas")
+
+[node name="AttackArea2D" type="Area2D" parent="Attack/MeshInstance2D" unique_id=1563840791]
+rotation = 1.5707964
+scale = Vector2(0.028406383, 0.019506274)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack/MeshInstance2D/AttackArea2D" unique_id=412763247 groups=["player"]]
+position = Vector2(23.000006, 0.5)
+shape = SubResource("RectangleShape2D_xhfnw")
