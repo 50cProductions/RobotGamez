@@ -29,6 +29,7 @@ const DASH_SPEED: float = 700.0
 const DASH_DURATION: float = 0.15
 const DASH_COOLDOWN: float = 0.4
 
+var can_dash: bool = true
 var dash_timer: float = 0.0
 var dash_cooldown_timer: float = 0.0
 var dash_direction: Vector2 = Vector2.ZERO
@@ -44,9 +45,12 @@ func _physics_process(delta: float) -> void:
 	# Dash timers
 	dash_timer = max(dash_timer - delta, 0.0)
 	dash_cooldown_timer = max(dash_cooldown_timer - delta, 0.0)
+	if dash_timer <= 0.0 and is_on_floor() or is_on_wall():
+		can_dash = true
 
 	# Start dash
-	if Input.is_action_just_pressed("dash") and dash_cooldown_timer == 0.0:
+	if Input.is_action_just_pressed("dash") and can_dash:
+		can_dash = false
 		dash_timer = DASH_DURATION
 		dash_cooldown_timer = DASH_COOLDOWN
 		
