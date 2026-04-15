@@ -20,6 +20,7 @@ var wall_jump_lock: float = 0.0
 const WALL_JUMP_LOCK_TIME: float = 0.05
 
 var look_dir: Vector2 = Vector2.RIGHT
+var was_in_air = false
 
 var TotalAttackDuration: float = 0.25
 var attack_duration_timer: float = 0.0
@@ -32,7 +33,7 @@ const DASH_COOLDOWN: float = 0.4
 var can_dash: bool = true
 var dash_timer: float = 0.0
 var dash_cooldown_timer: float = 0.0
-var dash_direction: Vector2 = Vector2.ZERO
+var dash_direction: Vector2 = Vector2.ZERO 
 
 func _ready() -> void:
 	add_to_group("player")
@@ -40,6 +41,7 @@ func _ready() -> void:
 	AttackArea.get_node("CollisionShape2D").disabled = true
 	AttackArea.connect("area_entered", _attack_area_hit)
 	AttackArea.connect("body_entered", _attack_area_hit)
+	$Camera2D.top_level = true
 
 func _physics_process(delta: float) -> void:
 	# Dash timers
@@ -83,6 +85,11 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor() or wall_contact_coyote > 0.0:
 		if Input.is_action_just_pressed("ui_accept"):
 			velocity.y = JUMP_VELOCITY
+			var jump_tween = create_tween()
+			jump_tween.tween_property(self, "scale",
+			Vector2(0.8, 1.25), 0.1)
+			jump_tween.chain().tween_property(self, "scale",
+			 Vector2(1.0, 1.0), 0.1)
 			if wall_contact_coyote > 0.0:
 				velocity.x = -look_dir.x * WALL_JUMP_PUSH_FORCE
 				wall_jump_lock = WALL_JUMP_LOCK_TIME
@@ -98,7 +105,24 @@ func _physics_process(delta: float) -> void:
 	_attack_logic(delta)
 	move_and_slide()
 	
-	
+	# Handle squash and stretch effect on landing for better game feel
+	if is_on_floor():
+		if was_in_air:
+			var squash_tween = create_tween()
+			squash_tween.tween_property(self, "scale",
+			Vector2(1.25, 0.75), 0.1)
+			squash_tween.chain().tween_property(self, "scale", 
+			Vector2(1.0, 1.0), 0.1)
+			was_in_air = false
+	else:
+			was_in_air = true
+	# Camera Look Ahead logic
+	var target_offset = 100.0
+	if velocity.x > 0:
+		$Camera2D.offset.x = lerp($Camera2D.offset.x, target_offset, 0.05)
+	elif velocity.x < 0:
+		$Camera2D.offset.x = lerp($Camera2D.offset.x, -target_offset, 0.05)
+
 
 func _attack_logic(delta: float) -> void:
 	if attack_duration_timer == 0.0:
