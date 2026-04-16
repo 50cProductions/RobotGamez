@@ -116,6 +116,7 @@ func _physics_process(delta: float) -> void:
 			was_in_air = false
 	else:
 			was_in_air = true
+	
 	# Camera Look Ahead logic
 	var target_offset = 100.0
 	if velocity.x > 0:
