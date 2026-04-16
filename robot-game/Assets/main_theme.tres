@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://cajb67ruexd1x"]
+
+[ext_resource type="FontFile" uid="uid://i103ysc8tsr5" path="res://Assets/PlanetaryContact.ttf" id="1_j03tf"]
+
+[resource]
+default_font = ExtResource("1_j03tf")
+default_font_size = 40

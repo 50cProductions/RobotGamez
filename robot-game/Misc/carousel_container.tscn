@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://0ihwqspeh626"]
+
+[ext_resource type="Script" path="res://Misc/carousel_container.gd" id="1_y70tr"]
+
+[node name="CarouselContainer" type="Node2D" unique_id=1309230766]
+script = ExtResource("1_y70tr")

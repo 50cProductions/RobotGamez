@@ -8,3 +8,6 @@ var dynamo: int
 var helliorb: int
 var gunpowder: int
 var raycrystal: int
+
+#signals
+signal computer_hacked
