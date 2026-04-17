@@ -13,7 +13,7 @@ config_version=5
 config/name="RobotGame"
 run/main_scene="uid://cll0paksyh8pg"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Assets/icon.svg"
 
 [input]
 

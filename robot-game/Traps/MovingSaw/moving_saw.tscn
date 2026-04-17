@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cuxi7gqxl7oip"]
+
+[ext_resource type="Texture2D" uid="uid://c1b1h22h5eal7" path="res://Assets/icon.svg" id="1_f4qmt"]
+[ext_resource type="Script" uid="uid://dnj0no5ptwk3r" path="res://Traps/MovingSaw/movingsaw.gd" id="1_ygvvu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f4qmt"]
+radius = 61.073727
+
+[node name="Node2D" type="Node2D" unique_id=218647402]
+
+[node name="Movingsaw" type="Area2D" parent="." unique_id=1614023872]
+collision_layer = 2
+script = ExtResource("1_ygvvu")
+
+[node name="Sprite2D" type="Sprite2D" parent="Movingsaw" unique_id=1224016675]
+texture = ExtResource("1_f4qmt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Movingsaw" unique_id=437568019]
+shape = SubResource("CircleShape2D_f4qmt")
+
+[connection signal="body_entered" from="Movingsaw" to="Movingsaw" method="_on_body_entered"]
