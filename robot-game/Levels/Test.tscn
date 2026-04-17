@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cll0paksyh8pg"]
 
 [ext_resource type="PackedScene" uid="uid://c05dos5uqad4d" path="res://Player/Player.tscn" id="1_cljdu"]
+[ext_resource type="PackedScene" uid="uid://cfstd1p7bot1c" path="res://Traps/Spikes.tscn" id="2_uvd1l"]
 
 [sub_resource type="GDScript" id="GDScript_myinc"]
 script/source = "extends Node2D
@@ -26,13 +27,13 @@ size = Vector2(1028.5, 141)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_njov2"]
 size = Vector2(44.375, 767.5)
 
-[sub_resource type="SphereMesh" id="SphereMesh_8tn2x"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_aq4fw"]
-radius = 56.008926
-
 [node name="Test" type="Node2D" unique_id=1104303678]
 script = SubResource("GDScript_myinc")
+
+[node name="Traps_Container" type="Node2D" parent="." unique_id=557579346]
+
+[node name="Spikes" parent="Traps_Container" unique_id=1574210904 instance=ExtResource("2_uvd1l")]
+position = Vector2(194, 193)
 
 [node name="Room" type="StaticBody2D" parent="." unique_id=1600489153]
 
@@ -60,7 +61,7 @@ position = Vector2(-383.25, -2)
 shape = SubResource("RectangleShape2D_njov2")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Room" unique_id=258554470]
-position = Vector2(382.1875, 6.625)
+position = Vector2(380, -41)
 shape = SubResource("RectangleShape2D_njov2")
 
 [node name="CharacterBody2D" parent="." unique_id=1816955753 instance=ExtResource("1_cljdu")]
@@ -68,14 +69,3 @@ position = Vector2(-168, 103)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=660183255]
 position_smoothing_enabled = true
-
-[node name="RingATK" type="Area2D" parent="." unique_id=1067776680 groups=["pogoable"]]
-position = Vector2(242, 136)
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="RingATK" unique_id=165295993]
-position = Vector2(0.49999642, 1)
-scale = Vector2(121.13721, 123.25002)
-mesh = SubResource("SphereMesh_8tn2x")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RingATK" unique_id=228629235]
-shape = SubResource("CircleShape2D_aq4fw")

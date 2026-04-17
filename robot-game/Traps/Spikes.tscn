@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cfstd1p7bot1c"]
+
+[ext_resource type="Script" uid="uid://b50puhhxxry1v" path="res://Traps/spikes.gd" id="1_0e48y"]
+[ext_resource type="Texture2D" uid="uid://c1b1h22h5eal7" path="res://icon.svg" id="1_wtcfe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
+size = Vector2(141, 35)
+
+[node name="Node2D" type="Node2D" unique_id=1574210904]
+
+[node name="Spikes" type="Area2D" parent="." unique_id=1949265605]
+script = ExtResource("1_0e48y")
+
+[node name="Sprite2D" type="Sprite2D" parent="Spikes" unique_id=702466779]
+position = Vector2(-21.750002, -25.500002)
+scale = Vector2(1.1992186, 0.38281247)
+texture = ExtResource("1_wtcfe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes" unique_id=571100502]
+position = Vector2(-20.5, -26.5)
+shape = SubResource("RectangleShape2D_0e48y")
+
+[connection signal="body_entered" from="Spikes" to="Spikes" method="_on_body_entered"]
