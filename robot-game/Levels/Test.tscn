@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c05dos5uqad4d" path="res://Player/Player.tscn" id="1_cljdu"]
 [ext_resource type="PackedScene" uid="uid://cuxi7gqxl7oip" path="res://Traps/MovingSaw/moving_saw.tscn" id="2_p4erq"]
 [ext_resource type="PackedScene" uid="uid://cfstd1p7bot1c" path="res://Traps/Spikes/Spikes.tscn" id="2_uvd1l"]
+[ext_resource type="PackedScene" uid="uid://84irgxger4l3" path="res://Traps/Laser/laser.tscn" id="3_xfdtu"]
 
 [sub_resource type="GDScript" id="GDScript_myinc"]
 script/source = "extends Node2D
@@ -36,8 +37,11 @@ script = SubResource("GDScript_myinc")
 [node name="Spikes" parent="Traps_Container" unique_id=1574210904 instance=ExtResource("2_uvd1l")]
 position = Vector2(291, 191)
 
-[node name="Node2D" parent="Traps_Container" unique_id=218647402 instance=ExtResource("2_p4erq")]
-position = Vector2(-249, 121)
+[node name="MovingSaw" parent="Traps_Container" unique_id=218647402 instance=ExtResource("2_p4erq")]
+position = Vector2(-296, 116)
+
+[node name="Laser" parent="Traps_Container" unique_id=1728593626 instance=ExtResource("3_xfdtu")]
+position = Vector2(124, -1)
 
 [node name="Room" type="StaticBody2D" parent="." unique_id=1600489153]
 
