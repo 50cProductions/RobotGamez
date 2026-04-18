@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://clv4fpiok3kdd"]
+
+[ext_resource type="PackedScene" uid="uid://dxi2ncck3jngv" path="res://Enemy/Enemy base/enemy_base.tscn" id="2_85xes"]
+[ext_resource type="PackedScene" uid="uid://c05dos5uqad4d" path="res://Player/Player.tscn" id="3_yrufy"]
+
+[sub_resource type="GDScript" id="GDScript_myinc"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="BoxMesh" id="BoxMesh_rvu7i"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_myinc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_myinc"]
+size = Vector2(2523.25, 141)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_njov2"]
+size = Vector2(44.375, 767.5)
+
+[node name="TestWithEmemy" type="Node2D" unique_id=1104303678]
+script = SubResource("GDScript_myinc")
+
+[node name="Room" type="StaticBody2D" parent="." unique_id=1600489153]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Room" unique_id=1681015855]
+position = Vector2(749.4375, 261)
+scale = Vector2(2527.125, 148)
+mesh = SubResource("BoxMesh_rvu7i")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Room" unique_id=548231729]
+position = Vector2(-381.875, -78)
+scale = Vector2(44.249996, 609.25)
+mesh = SubResource("BoxMesh_myinc")
+
+[node name="MeshInstance2D3" type="MeshInstance2D" parent="Room" unique_id=260757028]
+position = Vector2(1857, -111)
+scale = Vector2(44.249996, 609.25)
+mesh = SubResource("BoxMesh_myinc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Room" unique_id=2006093133]
+position = Vector2(752.375, 259)
+shape = SubResource("RectangleShape2D_myinc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Room" unique_id=1666272968]
+position = Vector2(-383.25, -2)
+shape = SubResource("RectangleShape2D_njov2")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Room" unique_id=258554470]
+position = Vector2(1859, -28)
+shape = SubResource("RectangleShape2D_njov2")
+
+[node name="CharacterBody2D" parent="." unique_id=1816955753 instance=ExtResource("3_yrufy")]
+position = Vector2(26, 156)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=660183255]
+position_smoothing_enabled = true
+
+[node name="EnemyBase" parent="." unique_id=1565897922 node_paths=PackedStringArray("movement_range") instance=ExtResource("2_85xes")]
+position = Vector2(521, 111)
+movement_range = NodePath("MovementRange")
+
+[node name="MovementRange" type="Node2D" parent="EnemyBase" unique_id=788080427]
+
+[node name="Start" type="Marker2D" parent="EnemyBase/MovementRange" unique_id=2106339555]
+position = Vector2(-115, 76)
+
+[node name="End" type="Marker2D" parent="EnemyBase/MovementRange" unique_id=1780418214]
+position = Vector2(118, 74)
