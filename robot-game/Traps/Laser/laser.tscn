@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://84irgxger4l3"]
+
+[ext_resource type="Script" uid="uid://bw0a0oh6xr5gq" path="res://Traps/Laser/laser_trap.gd" id="1_t3k38"]
+
+[node name="Node2D" type="Node2D" unique_id=1728593626]
+
+[node name="LaserTrap" type="Node2D" parent="." unique_id=792371871]
+script = ExtResource("1_t3k38")
+
+[node name="Sprite2D" type="Sprite2D" parent="LaserTrap" unique_id=1361767371]
+
+[node name="RayCast2D" type="RayCast2D" parent="LaserTrap" unique_id=1988529862]
+target_position = Vector2(0, 300)
+
+[node name="Line2D" type="Line2D" parent="LaserTrap" unique_id=2073125294]
+points = PackedVector2Array(0, 0, 0, 300)
+width = 3.0
+default_color = Color(1, 0, 0, 1)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="LaserTrap" unique_id=1428289027]
+position = Vector2(0, 300)
+emitting = false
+amount = 15
+lifetime = 0.3
+explosiveness = 0.1
+spread = 180.0
+gravity = Vector2(0, -300)
+initial_velocity_min = 20.0
+initial_velocity_max = 50.0
+scale_amount_min = 4.0
+scale_amount_max = 6.0
+color = Color(1, 0.06666667, 0.101960786, 1)
