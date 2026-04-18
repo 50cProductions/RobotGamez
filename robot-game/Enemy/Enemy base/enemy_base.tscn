@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dxi2ncck3jngv"]
+
+[ext_resource type="Script" uid="uid://b3cubn5f8gvnq" path="res://Enemy/Enemy base/enemy_base.gd" id="1_6oe2u"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qvgeo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2th3i"]
+size = Vector2(40, 51)
+
+[node name="EnemyBase" type="CharacterBody2D" unique_id=1565897922]
+script = ExtResource("1_6oe2u")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=508692315]
+position = Vector2(0, 0.5)
+scale = Vector2(40, 51)
+mesh = SubResource("BoxMesh_qvgeo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1088397618]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_2th3i")
+
+[node name="Timer" type="Timer" parent="." unique_id=477023423]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
