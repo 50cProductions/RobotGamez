@@ -3,10 +3,11 @@ extends CharacterBody2D
 # This is still work in progress not yet completed guys
 
 @export var max_health := 100
-@export var speed := 25
+@export var speed := 50
 
 var health := max_health
 var target = null
+const GRAVITY: float = 14.5
 
 enum State {
 	IDLE,
@@ -17,12 +18,11 @@ enum State {
 
 var current_state = State.IDLE
 
-func _ready():
-	for area in $DetectionAreas.get_children():
-		if area.has_signal("player_entered"):
-			area.player_entered.connect(_on_player_detected)
-
 func _physics_process(delta: float) -> void:
+	if not is_on_floor():
+		velocity.y += GRAVITY * delta
+	else:
+		velocity.y = 0
 	match current_state:
 		State.IDLE:
 			idle_behavior()
@@ -30,6 +30,8 @@ func _physics_process(delta: float) -> void:
 			chase_behavior(delta)
 		State.ATTACK:
 			attack_behavior()
+			
+	move_and_slide()
 
 func _on_player_detected(player):
 	target = player
@@ -48,8 +50,7 @@ func chase_behavior(delta):
 		current_state = State.IDLE
 		return
 	var direction = (target.global_position - global_position).normalized()
-	velocity = direction * speed
-	move_and_slide()
+	velocity.x = direction.x * speed
 
 func attack_behavior():
 	pass # attack logic
@@ -65,8 +66,12 @@ func die():
 
 
 func _on_player_detection_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
+	print("Signal Detected body entered")
+	target = body
+	current_state = State.CHASE
 
 
 func _on_player_detection_body_exited(body: Node2D) -> void:
-	pass # Replace with function body.
+	print("Signal Detected body exited")
+	current_state = State.IDLE
+	target = null
