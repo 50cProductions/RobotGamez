@@ -15,9 +15,27 @@ run/main_scene="uid://cll0paksyh8pg"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://cl0wma67iesgw"
+
+[autoload]
+
+Taskmanager="*uid://1r3yp66vefpy"
+
+[display]
+
+window/stretch/mode="viewport"
+
+[global_group]
+
+pogoable=""
+player=""
+
 [gui]
 
 theme/custom="uid://cajb67ruexd1x"
+theme/custom_font="uid://cajb67ruexd1x"
 
 [input]
 
