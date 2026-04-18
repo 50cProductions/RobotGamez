@@ -176,5 +176,5 @@ func _on_inven_activate_pressed() -> void:
 		inven_activate_animation.play("Activate")
 		inven_activated = true
 	else:
-		inven_activate_animation.play_backwards("Activate")
+		inven_activate_animation.play("Deactive")
 		inven_activated = false

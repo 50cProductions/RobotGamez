@@ -21,5 +21,7 @@ func _button_exit() -> void:
 func _button_pressed() ->void:
 	#$"../../../Button press audio".play()
 	var button_press_tween: Tween = create_tween()
+	await button_press_tween.finished
 	button_press_tween.tween_property(self, "scale", pressed_scale, 0.06).set_trans(Tween.TRANS_SINE)
 	button_press_tween.tween_property(self, "scale", hover_scale, 0.12).set_trans(Tween.TRANS_SINE)
+	

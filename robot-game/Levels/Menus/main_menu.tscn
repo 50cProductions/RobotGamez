@@ -19,6 +19,21 @@ tracks/0/keys = {
 "values": [Vector2(-555, 653), Vector2(-555, 422)]
 }
 
+[sub_resource type="Animation" id="Animation_hmido"]
+resource_name = "Deactive"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.314, 0.314),
+"update": 0,
+"values": [Vector2(-555, 422), Vector2(-555, 653)]
+}
+
 [sub_resource type="Animation" id="Animation_o6ot1"]
 length = 0.001
 tracks/0/type = "value"
@@ -37,6 +52,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hmido"]
 _data = {
 &"Activate": SubResource("Animation_xvt5i"),
+&"Deactive": SubResource("Animation_hmido"),
 &"RESET": SubResource("Animation_o6ot1")
 }
 
@@ -1215,6 +1231,7 @@ theme_override_constants/separation = -15
 
 [node name="Fullscreen" type="CheckBox" parent="CenterContainer/Settings" unique_id=1856308412]
 layout_mode = 2
+button_pressed = true
 text = "FULLSCREEN"
 
 [node name="Label" type="Label" parent="CenterContainer/Settings" unique_id=976794197]

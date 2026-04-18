@@ -25,6 +25,7 @@ Taskmanager="*uid://1r3yp66vefpy"
 
 [display]
 
+window/size/mode=4
 window/stretch/mode="viewport"
 
 [global_group]
