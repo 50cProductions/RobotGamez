@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://clv4fpiok3kdd"]
 
 [ext_resource type="PackedScene" uid="uid://dxi2ncck3jngv" path="res://Enemy/Enemy base/enemy_base.tscn" id="2_85xes"]
+[ext_resource type="PackedScene" uid="uid://p0j08maqlp88" path="res://Enemy/Robo/Robo.tscn" id="3_sp575"]
 [ext_resource type="PackedScene" uid="uid://c05dos5uqad4d" path="res://Player/Player.tscn" id="3_yrufy"]
 
 [sub_resource type="GDScript" id="GDScript_myinc"]
@@ -76,3 +77,6 @@ position = Vector2(-115, 76)
 
 [node name="End" type="Marker2D" parent="EnemyBase/MovementRange" unique_id=1780418214]
 position = Vector2(118, 74)
+
+[node name="Robo" parent="." unique_id=94115652 instance=ExtResource("3_sp575")]
+position = Vector2(195, 146)

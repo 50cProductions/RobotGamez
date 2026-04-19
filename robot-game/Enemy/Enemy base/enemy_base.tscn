@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://dxi2ncck3jngv"]
 
 [ext_resource type="Script" uid="uid://b3cubn5f8gvnq" path="res://Enemy/Enemy base/enemy_base.gd" id="1_6oe2u"]
+[ext_resource type="Script" uid="uid://bxbyctixnwo7i" path="res://Enemy/Enemy base/gravity.gd" id="2_kjqrl"]
+[ext_resource type="Script" uid="uid://c3n0ywp72fnwc" path="res://Enemy/Enemy base/state_machine_controller.gd" id="2_whfpu"]
+[ext_resource type="Script" uid="uid://dv23yn70a7ec6" path="res://Scripts/node_sm.gd" id="3_bmdbw"]
+[ext_resource type="Script" uid="uid://b2fy8bl3slmo4" path="res://Enemy/Enemy base/idle.gd" id="4_kjqrl"]
+[ext_resource type="Script" uid="uid://6q8yxl0wvrig" path="res://Enemy/Enemy base/walk.gd" id="5_bmdbw"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_qvgeo"]
 
@@ -19,8 +24,30 @@ mesh = SubResource("BoxMesh_qvgeo")
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_2th3i")
 
+[node name="Gravity" type="Node" parent="." unique_id=1833326620 node_paths=PackedStringArray("char_body_2d")]
+script = ExtResource("2_kjqrl")
+char_body_2d = NodePath("..")
+
 [node name="Timer" type="Timer" parent="." unique_id=477023423]
 wait_time = 3.0
 autostart = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="StateMachineController" type="Node" parent="." unique_id=686744199 node_paths=PackedStringArray("node_sm", "timer")]
+script = ExtResource("2_whfpu")
+node_sm = NodePath("../StateMachine")
+timer = NodePath("../Timer")
+
+[node name="StateMachine" type="Node" parent="." unique_id=676521870 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_bmdbw")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=1498652822 node_paths=PackedStringArray("char_body_2d")]
+script = ExtResource("4_kjqrl")
+char_body_2d = NodePath("../..")
+
+[node name="Walk" type="Node" parent="StateMachine" unique_id=1248889087 node_paths=PackedStringArray("enemy")]
+script = ExtResource("5_bmdbw")
+enemy = NodePath("../..")
+
+[connection signal="timeout" from="Timer" to="StateMachineController" method="_on_timer_timeout"]
+[connection signal="point_reached" from="StateMachine/Walk" to="StateMachineController" method="_on_walk_point_reached"]
