@@ -49,4 +49,5 @@ func _process(delta):
 
 
 func _on_movingsaw_body_entered(body: Node2D) -> void:
-	get_tree().reload_current_scene()
+	if body.is_in_group("player"):
+		get_tree().reload_current_scene()

@@ -45,7 +45,7 @@ func _process(_delta):
 		
 		# إذا لمس الليزر اللاعب (تأكد أن اللاعب في Collision Layer الصحيح)
 		var target = ray_cast.get_collider()
-		if target is CharacterBody2D:
+		if target.is_in_group("player"):
 			get_tree().reload_current_scene()
 	else:
 		line.points[1] = ray_cast.target_position
