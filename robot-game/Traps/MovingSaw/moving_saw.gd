@@ -46,3 +46,7 @@ func _process(delta):
 			
 	saw_node.position = new_pos
 	saw_node.rotation += delta * 10
+
+
+func _on_movingsaw_body_entered(body: Node2D) -> void:
+	get_tree().reload_current_scene()

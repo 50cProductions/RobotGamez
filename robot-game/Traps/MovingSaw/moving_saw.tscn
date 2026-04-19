@@ -18,4 +18,4 @@ texture = ExtResource("1_f4qmt")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Movingsaw" unique_id=437568019]
 shape = SubResource("CircleShape2D_f4qmt")
 
-[connection signal="body_entered" from="Movingsaw" to="Movingsaw" method="_on_body_entered"]
+[connection signal="body_entered" from="Movingsaw" to="." method="_on_movingsaw_body_entered"]
