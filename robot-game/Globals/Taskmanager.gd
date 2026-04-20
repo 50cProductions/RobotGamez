@@ -16,5 +16,7 @@ var Robot3: bool
 var Robot4: bool 
 var Robot5: bool 
 
+var robot_equipped: String
+
 #signals
 signal computer_hacked

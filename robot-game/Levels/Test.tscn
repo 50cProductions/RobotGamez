@@ -34,14 +34,15 @@ script = SubResource("GDScript_myinc")
 
 [node name="Traps_Container" type="Node2D" parent="." unique_id=557579346]
 
-[node name="Spikes" parent="Traps_Container" unique_id=1574210904 instance=ExtResource("2_uvd1l")]
-position = Vector2(291, 191)
+[node name="Spikes" parent="Traps_Container" unique_id=1574210904 groups=["pogoable"] instance=ExtResource("2_uvd1l")]
+position = Vector2(308, 164)
 
 [node name="Laser" parent="Traps_Container" unique_id=1728593626 instance=ExtResource("3_xfdtu")]
 position = Vector2(124, -1)
 
-[node name="Movingsaw" parent="Traps_Container" unique_id=218647402 instance=ExtResource("2_p4erq")]
-start_from_zero = false
+[node name="Movingsaw" parent="Traps_Container" unique_id=218647402 groups=["pogoable"] instance=ExtResource("2_p4erq")]
+direction = 1
+reverse_direction = true
 
 [node name="Room" type="StaticBody2D" parent="." unique_id=1600489153]
 
