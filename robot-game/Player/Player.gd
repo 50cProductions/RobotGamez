@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@export var camera: Camera2D
+
 @onready var AttackParent := $Attack
 @onready var AttackSprite := $Attack/MeshInstance2D
 @onready var AttackArea := $Attack/MeshInstance2D/AttackArea2D
@@ -35,13 +37,26 @@ var dash_timer: float = 0.0
 var dash_cooldown_timer: float = 0.0
 var dash_direction: Vector2 = Vector2.ZERO 
 
+
+
 func _ready() -> void:
+	if Taskmanager.activate:
+		global_position = Taskmanager.PlayerPos
+		if Taskmanager.PlayerJumpOnEnter:
+			velocity.y = JUMP_VELOCITY
+			var jump_tween = create_tween()
+			jump_tween.tween_property(self, "scale",
+			Vector2(0.8, 1.25), 0.1)
+			jump_tween.chain().tween_property(self, "scale",
+			Vector2(1.0, 1.0), 0.1)
+		Taskmanager.activate = false
+	
 	add_to_group("player")
 	AttackSprite.modulate.a = 0.0
 	AttackArea.get_node("CollisionShape2D").disabled = true
 	AttackArea.connect("area_entered", _attack_area_hit)
 	AttackArea.connect("body_entered", _attack_area_hit)
-	$Camera2D.top_level = true
+	camera.top_level = true
 
 func _physics_process(delta: float) -> void:
 	# Dash timers
@@ -120,9 +135,9 @@ func _physics_process(delta: float) -> void:
 	# Camera Look Ahead logic
 	var target_offset = 100.0
 	if velocity.x > 0:
-		$Camera2D.offset.x = lerp($Camera2D.offset.x, target_offset, 0.05)
+		camera.offset.x = lerp(camera.offset.x, target_offset, 0.05)
 	elif velocity.x < 0:
-		$Camera2D.offset.x = lerp($Camera2D.offset.x, -target_offset, 0.05)
+		camera.offset.x = lerp(camera.offset.x, -target_offset, 0.05)
 
 
 func _attack_logic(delta: float) -> void:
