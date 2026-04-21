@@ -22,6 +22,7 @@ buses/default_bus_layout="uid://cl0wma67iesgw"
 [autoload]
 
 Taskmanager="*uid://1r3yp66vefpy"
+GameManager="*uid://c4hqhrrtyk8tg"
 
 [display]
 

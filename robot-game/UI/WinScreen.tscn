@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bd1c1bgh5uowo"]
+
+[ext_resource type="Script" uid="uid://ban6tnfwqskdw" path="res://UI/WinScreen.gd" id="1_k7uma"]
+
+[node name="WinScreen" type="Control" unique_id=90492426]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k7uma")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1820615366]
+custom_minimum_size = Vector2(1000, 600)
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 1146.0
+offset_bottom = 643.0
+color = Color(0.1882353, 1, 0.37254903, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1785668979]
+layout_mode = 0
+offset_left = 198.0
+offset_top = 253.0
+offset_right = 928.0
+offset_bottom = 337.0
+text = "Congratulation, you won!"
+
+[node name="Button" type="Button" parent="." unique_id=1391449949]
+layout_mode = 0
+offset_left = 929.0
+offset_top = 517.0
+offset_right = 1097.0
+offset_bottom = 595.0
+text = "next"
+
+[connection signal="pressed" from="Button" to="." method="on_next_level_button_pressed"]
