@@ -2,9 +2,11 @@ extends CharacterBody2D
 
 @export var camera: Camera2D
 
+@onready var CharacterSprite := $AnimatedSprite2D
+
 @onready var AttackParent := $Attack
-@onready var AttackSprite := $Attack/MeshInstance2D
-@onready var AttackArea := $Attack/MeshInstance2D/AttackArea2D
+@onready var AttackSprite := $Attack/Slash
+@onready var AttackArea := $Attack/Slash/AttackArea2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -37,7 +39,7 @@ var dash_timer: float = 0.0
 var dash_cooldown_timer: float = 0.0
 var dash_direction: Vector2 = Vector2.ZERO 
 
-
+var attack_num: int
 
 func _ready() -> void:
 	if Taskmanager.activate:
@@ -52,7 +54,6 @@ func _ready() -> void:
 		Taskmanager.activate = false
 	
 	add_to_group("player")
-	AttackSprite.modulate.a = 0.0
 	AttackArea.get_node("CollisionShape2D").disabled = true
 	AttackArea.connect("area_entered", _attack_area_hit)
 	AttackArea.connect("body_entered", _attack_area_hit)
@@ -84,11 +85,37 @@ func _physics_process(delta: float) -> void:
 	var x_input: float = Input.get_axis("left", "right") 
 	var velocity_weight_x: float = 1.0 - exp(-(ACCELERATION if x_input else FRICTION) * delta)
 	velocity.x = lerp(velocity.x, x_input * SPEED, velocity_weight_x)
-	 
+	
+	
+	#ANIMATIONS!!!
+	if !Input.is_action_just_pressed("attack"):
+		if is_on_floor():
+			if velocity.x != 0:
+				CharacterSprite.play("Walk")
+			else :
+				CharacterSprite.play("Idle") 
+		else :
+			if is_on_wall() and (Input.is_action_pressed("left") or Input.is_action_pressed("right")):
+				CharacterSprite.play("WallGrab")
+			else:
+				CharacterSprite.play("Jump")
+	
+	else :
+		CharacterSprite.play("Attack")
+	
+	
 	if x_input:
 		look_dir.x = x_input
 	var y_input: float = Input.get_axis("up", "down")
 	look_dir.y = y_input
+	
+	if look_dir > Vector2(0, 0):
+		CharacterSprite.flip_h = false
+		AttackSprite.flip_v = false
+	elif look_dir < Vector2(0, 0):
+		CharacterSprite.flip_h = true
+		AttackSprite.flip_v = true
+	
 	
 	if wall_jump_lock > 0.0:
 		wall_jump_lock -= delta
@@ -150,13 +177,20 @@ func _attack_logic(delta: float) -> void:
 			
 			AttackArea.get_node("CollisionShape2D").disabled = false
 			attack_duration_timer = TotalAttackDuration
-			AttackSprite.position.x = 0.0
 			
-			var attack_pos_tween: Tween = create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-			attack_pos_tween.tween_property(AttackSprite, "position:x", attack_distance, TotalAttackDuration)
-			var attack_modulate_tween: Tween = create_tween().set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
-			attack_modulate_tween.tween_property(AttackSprite, "modulate:a", 1.0, TotalAttackDuration * 0.1)
-			attack_modulate_tween.chain().tween_property(AttackSprite, "modulate:a", 0.0, TotalAttackDuration * 0.9)
+			CharacterSprite.play("Attack")
+			
+			if attack_num == 0:
+				AttackSprite.play("Slash1")
+				attack_num = 2
+			elif attack_num == 1:
+				AttackSprite.play("Slash1")
+				attack_num = 2
+			elif attack_num == 2:
+				AttackSprite.play("Slash2")
+				attack_num = 1
+			
+
 	else :
 		attack_duration_timer = max(0.0, attack_duration_timer - delta)
 		if attack_duration_timer == 0.0:
