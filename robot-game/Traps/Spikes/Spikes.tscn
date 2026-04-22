@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://cfstd1p7bot1c"]
 
 [ext_resource type="Script" uid="uid://b4xqdmh6krqo5" path="res://Traps/Spikes/spikes.gd" id="1_0e48y"]
-[ext_resource type="Texture2D" uid="uid://c1b1h22h5eal7" path="res://Assets/icon.svg" id="1_wtcfe"]
-[ext_resource type="Script" uid="uid://b50puhhxxry1v" path="res://Traps/Spikes/spikes.gd" id="1_0e48y"]
 [ext_resource type="Texture2D" uid="uid://4rm5mr0plf7q" path="res://Assets/Traps/Spike.png" id="2_dgwfv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
@@ -22,4 +20,4 @@ texture = ExtResource("2_dgwfv")
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_0e48y")
 
-[connection signal="body_entered" from="Spikes" to="Spikes" method="_on_body_entered"]
+[connection signal="body_entered" from="Spikes" to="." method="_on_spikes_body_entered"]

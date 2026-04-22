@@ -37,9 +37,10 @@ script = SubResource("GDScript_myinc")
 position = Vector2(0, 1)
 
 [node name="Spikes" parent="Traps_Container" unique_id=1574210904 instance=ExtResource("2_uvd1l")]
-position = Vector2(-108, 187)
-[node name="Spikes" parent="Traps_Container" unique_id=1574210904 groups=["pogoable"] instance=ExtResource("2_uvd1l")]
-position = Vector2(308, 164)
+position = Vector2(336, 164)
+
+[node name="Spikes2" parent="Traps_Container" unique_id=704181980 groups=["pogoable"] instance=ExtResource("2_uvd1l")]
+position = Vector2(284, 164)
 
 [node name="Laser" parent="Traps_Container" unique_id=1728593626 instance=ExtResource("3_xfdtu")]
 position = Vector2(-41, 18)
@@ -48,12 +49,9 @@ position = Vector2(-41, 18)
 position = Vector2(-284, 131)
 
 [node name="Goal2" parent="Traps_Container" unique_id=1873877356 instance=ExtResource("5_ah0qf")]
-position = Vector2(288.99997, 164.00002)
+position = Vector2(148, -103.999954)
 scale = Vector2(1.0137724, 0.70549)
 next_level_path = "res://test.tscn"
-[node name="Movingsaw" parent="Traps_Container" unique_id=218647402 groups=["pogoable"] instance=ExtResource("2_p4erq")]
-direction = 1
-reverse_direction = true
 
 [node name="Room" type="StaticBody2D" parent="." unique_id=1600489153]
 position = Vector2(3, 1)
@@ -85,12 +83,10 @@ shape = SubResource("RectangleShape2D_njov2")
 position = Vector2(380, -41)
 shape = SubResource("RectangleShape2D_njov2")
 
-[node name="CharacterBody2D" parent="." unique_id=1816955753 instance=ExtResource("1_cljdu")]
-position = Vector2(85, 157)
 [node name="CharacterBody2D" parent="." unique_id=1816955753 node_paths=PackedStringArray("camera") instance=ExtResource("1_cljdu")]
-position = Vector2(26, 156)
+position = Vector2(85, 157)
 camera = NodePath("Camera2D")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=660183255]
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=798839951]
 position = Vector2(3, -2)
 position_smoothing_enabled = true

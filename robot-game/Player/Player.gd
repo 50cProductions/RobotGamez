@@ -59,6 +59,7 @@ func _ready() -> void:
 	AttackArea.connect("body_entered", _attack_area_hit)
 	camera.top_level = true
 
+
 func _physics_process(delta: float) -> void:
 	# Dash timers
 	dash_timer = max(dash_timer - delta, 0.0)
