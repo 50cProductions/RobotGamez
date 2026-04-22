@@ -11,7 +11,6 @@ func _process(delta: float) -> void:
 	pass
 
 
-
 func _on_spikes_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		get_tree().reload_current_scene()
+	if body.has_method("take_damage"):
+		body.take_damage(25, global_position)

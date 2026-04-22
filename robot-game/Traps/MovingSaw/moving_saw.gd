@@ -47,7 +47,6 @@ func _process(delta):
 	saw_node.position = new_pos
 	saw_node.rotation += delta * 10
 
-
-func _on_movingsaw_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		get_tree().reload_current_scene()
+func _on_movingsaw_body_entered(body: Node2D):
+	if body.has_method("take_damage"):
+		body.take_damage(35, global_position)

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dn3volbp0k6wu" path="res://Assets/Traps/Saw.png" id="2_ygvvu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f4qmt"]
-radius = 50.358715
+radius = 60.00833
 
 [node name="Movingsaw" type="Node2D" unique_id=218647402]
 script = ExtResource("1_ygvvu")
