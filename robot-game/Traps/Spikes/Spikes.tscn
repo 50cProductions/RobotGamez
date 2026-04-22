@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://4rm5mr0plf7q" path="res://Assets/Traps/Spike.png" id="2_dgwfv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
-size = Vector2(52, 24)
+size = Vector2(51, 44)
 
 [node name="Node2D" type="Node2D" unique_id=1574210904]
 script = ExtResource("1_0e48y")
@@ -17,7 +17,7 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_dgwfv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Spikes" unique_id=571100502]
-position = Vector2(0, 8)
+position = Vector2(0.5, -1)
 shape = SubResource("RectangleShape2D_0e48y")
 
 [connection signal="body_entered" from="Spikes" to="." method="_on_spikes_body_entered"]

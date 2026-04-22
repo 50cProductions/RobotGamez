@@ -1,13 +1,24 @@
 extends CharacterBody2D
 
+# Stats
+var max_health: int = 100
+var current_health: int = 100
+var lives: int = 3
+var start_position: Vector2
+
+# Signals
+signal health_changed(new_value)
+
+# Node References
 @export var camera: Camera2D
 
 @onready var CharacterSprite := $AnimatedSprite2D
-
 @onready var AttackParent := $Attack
 @onready var AttackSprite := $Attack/Slash
 @onready var AttackArea := $Attack/Slash/AttackArea2D
 
+# UI References
+@onready var health_bar = $CanvasLayer/CanvasLayer/ProgressBar
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const ACCELERATION: float = 18.5
@@ -34,12 +45,18 @@ const DASH_SPEED: float = 700.0
 const DASH_DURATION: float = 0.15
 const DASH_COOLDOWN: float = 0.4
 
+const KNOCKBACK_FORCE = 500.0
+
 var can_dash: bool = true
 var dash_timer: float = 0.0
 var dash_cooldown_timer: float = 0.0
 var dash_direction: Vector2 = Vector2.ZERO 
 
 var attack_num: int
+
+var is_invincible: bool = false
+const INVINCIBILITY_DURATION: float = 1.0 # مدة المناعة (ثانية واحدة)
+
 
 func _ready() -> void:
 	if Taskmanager.activate:
@@ -52,13 +69,14 @@ func _ready() -> void:
 			jump_tween.chain().tween_property(self, "scale",
 			Vector2(1.0, 1.0), 0.1)
 		Taskmanager.activate = false
-	
+	start_position = global_position
+	current_health = max_health
 	add_to_group("player")
 	AttackArea.get_node("CollisionShape2D").disabled = true
 	AttackArea.connect("area_entered", _attack_area_hit)
 	AttackArea.connect("body_entered", _attack_area_hit)
 	camera.top_level = true
-
+	
 
 func _physics_process(delta: float) -> void:
 	# Dash timers
@@ -205,3 +223,58 @@ func _attack_area_hit(target_node: Node) -> void:
 	
 	if (target_node.is_in_group("pogoable") or target_node.get_parent() and target_node.get_parent().is_in_group("pogoable")) and not is_on_floor():\
 	velocity.y = JUMP_VELOCITY
+	
+func take_damage(amount: int, trap_pos: Vector2):
+	if is_invincible:
+		return
+	
+	is_invincible = true
+	current_health -= amount
+	
+	var direction = 1 if global_position.x > trap_pos.x else -1
+	velocity.x = direction * KNOCKBACK_FORCE
+	velocity.y = -250
+	
+	move_and_slide()
+	_update_health_ui()
+	
+	if current_health <= 0:
+		handle_respawn()
+	else:
+		start_invincibility_timer()
+
+func _update_health_ui():
+	if health_bar:
+		health_bar.value = current_health
+		var new_style = health_bar.get_theme_stylebox("fill").duplicate()
+		if current_health <= 30:
+			new_style.bg_color = Color(1, 0, 0)
+		elif current_health <= 60:
+			new_style.bg_color = Color(1, 1, 0)
+		else:
+			new_style.bg_color = Color(0, 1, 0)
+		health_bar.add_theme_stylebox_override("fill", new_style)
+
+func handle_respawn():
+	lives -= 1
+	is_invincible = false
+	CharacterSprite.modulate.a = 1.0
+	
+	if lives > 0:
+		global_position = start_position
+		current_health = max_health
+		_update_health_ui()
+	else:
+		game_over()
+
+func start_invincibility_timer():
+	var tween = create_tween().set_loops(5)
+	tween.tween_property(CharacterSprite, "modulate:a", 0.5, 0.1)
+	tween.tween_property(CharacterSprite, "modulate:a", 1.0, 0.1)
+	
+	await get_tree().create_timer(INVINCIBILITY_DURATION).timeout
+	is_invincible = false
+	CharacterSprite.modulate.a = 1.0
+
+func game_over():
+	get_tree().change_scene_to_file("res://UI/GameOverScreen.tscn")

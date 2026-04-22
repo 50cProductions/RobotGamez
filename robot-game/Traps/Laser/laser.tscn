@@ -2,6 +2,12 @@
 
 [ext_resource type="Script" uid="uid://bw0a0oh6xr5gq" path="res://Traps/Laser/laser_trap.gd" id="1_t3k38"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_65bnq"]
+size = Vector2(4, 310)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xmdws"]
+size = Vector2(2, 310)
+
 [node name="LaserTrap" type="Node2D" unique_id=792371871]
 script = ExtResource("1_t3k38")
 
@@ -11,6 +17,7 @@ script = ExtResource("1_t3k38")
 target_position = Vector2(0, 300)
 
 [node name="Line2D" type="Line2D" parent="." unique_id=2073125294]
+position = Vector2(0, -3)
 points = PackedVector2Array(0, 0, 0, 300)
 width = 3.0
 default_color = Color(1, 0, 0, 1)
@@ -28,3 +35,17 @@ initial_velocity_max = 50.0
 scale_amount_min = 4.0
 scale_amount_max = 6.0
 color = Color(1, 0.06666667, 0.101960786, 1)
+
+[node name="DamageArea" type="Area2D" parent="." unique_id=829338755]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=2087789127]
+position = Vector2(0, 145)
+shape = SubResource("RectangleShape2D_65bnq")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=237167956]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=565963575]
+position = Vector2(0, 145)
+shape = SubResource("RectangleShape2D_xmdws")
+
+[connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]

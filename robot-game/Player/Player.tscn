@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bvnyxrvcnok3t" path="res://Assets/Player/IdleWalking.png" id="2_tok1r"]
 [ext_resource type="Texture2D" uid="uid://c7ryfwu0t4nxc" path="res://Assets/Player/JumpingWallGrabDashing.png" id="3_ddoul"]
 [ext_resource type="Texture2D" uid="uid://cv2m0brqyqfj2" path="res://Assets/Attacks/PlayerSlash.png" id="5_6ysni"]
+[ext_resource type="PackedScene" uid="uid://c2x1ll72xqgi7" path="res://UI/canvas_layer.tscn" id="6_6ysni"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dm7nj"]
 atlas = ExtResource("2_8g4oa")
@@ -238,3 +239,7 @@ scale = Vector2(5, 3.571)
 position = Vector2(0.50000036, -0.59507203)
 scale = Vector2(1, 1.0000004)
 shape = SubResource("RectangleShape2D_xhfnw")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=200507067]
+
+[node name="CanvasLayer" parent="CanvasLayer" unique_id=331764572 instance=ExtResource("6_6ysni")]
