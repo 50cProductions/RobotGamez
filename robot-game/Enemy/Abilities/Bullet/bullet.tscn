@@ -8,6 +8,9 @@ height = 30.0
 
 [sub_resource type="MeshTexture" id="MeshTexture_2dao8"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_w2qky"]
+radius = 15.164111
+
 [node name="Bullet" type="MeshInstance2D" unique_id=1284771177]
 scale = Vector2(1.1644002, 1)
 mesh = SubResource("SphereMesh_v2uyx")
@@ -19,4 +22,13 @@ wait_time = 5.0
 one_shot = true
 autostart = true
 
+[node name="HitBox" type="Area2D" parent="." unique_id=223689181]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1247836916]
+shape = SubResource("CircleShape2D_w2qky")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

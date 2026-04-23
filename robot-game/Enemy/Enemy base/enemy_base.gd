@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var speed := 2000
 @export var movement_range: Node
 @export var wait_time = 1
+@export var damage_amount = 10
 
 const GRAVITY = 1000
 
