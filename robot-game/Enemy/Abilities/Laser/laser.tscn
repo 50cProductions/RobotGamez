@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://drkddgwqlgvvt"]
+
+[ext_resource type="Script" uid="uid://d0y2y6dumpnqb" path="res://Enemy/Abilities/Laser/laser.gd" id="1_2dao8"]
+
+[node name="Laser" type="RayCast2D" unique_id=507494047]
+target_position = Vector2(2000, 0)
+collision_mask = 3
+script = ExtResource("1_2dao8")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=268360458]
+width = 8.0
+default_color = Color(1, 0.1, 0.1, 1)
+
+[node name="Timer" type="Timer" parent="." unique_id=1048518675]
+wait_time = 0.2
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
