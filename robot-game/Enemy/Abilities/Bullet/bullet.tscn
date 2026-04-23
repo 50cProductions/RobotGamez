@@ -23,7 +23,7 @@ one_shot = true
 autostart = true
 
 [node name="HitBox" type="Area2D" parent="." unique_id=223689181]
-collision_layer = 2
+collision_layer = 4
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1247836916]
