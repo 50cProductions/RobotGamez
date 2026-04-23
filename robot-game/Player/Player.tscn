@@ -208,6 +208,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xhfnw"]
 size = Vector2(5.3, 11.1313305)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ysni"]
+radius = 29.0
+height = 92.0
+
 [node name="Player" type="CharacterBody2D" unique_id=1816955753]
 collision_layer = 3
 script = ExtResource("1_3qydi")
@@ -243,3 +247,15 @@ shape = SubResource("RectangleShape2D_xhfnw")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=200507067]
 
 [node name="CanvasLayer" parent="CanvasLayer" unique_id=331764572 instance=ExtResource("6_6ysni")]
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=279517083]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=311153659 groups=["player"]]
+position = Vector2(3, -27)
+shape = SubResource("CapsuleShape2D_6ysni")
+debug_color = Color(0.93867224, 1.2417734e-05, 0.6248308, 0.41960785)
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]

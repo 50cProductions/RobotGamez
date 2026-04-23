@@ -278,3 +278,17 @@ func spiked():
 
 func game_over():
 	get_tree().change_scene_to_file("res://UI/GameOverScreen.tscn")
+
+
+func _on_hurt_box_body_entered(body: Node2D) -> void:
+	print("entered enemy")
+	if body.is_in_group("enemy"):
+		print("dealing damage")
+		take_damage(body.damage_amount, global_position)
+		
+
+
+func _on_hurt_box_area_entered(area: Area2D) -> void:
+	if area.get_parent().has_method("get_damage_amount"):
+		var node = area.get_parent() as Node
+		take_damage(node.get_damage_amount(), global_position)

@@ -12,7 +12,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2th3i"]
 size = Vector2(40, 51)
 
-[node name="EnemyBase" type="CharacterBody2D" unique_id=1565897922]
+[node name="EnemyBase" type="CharacterBody2D" unique_id=1565897922 groups=["enemy"]]
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_6oe2u")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=508692315]
@@ -32,7 +34,7 @@ char_body_2d = NodePath("..")
 wait_time = 3.0
 autostart = true
 
-[node name="StateMachineController" type="Node" parent="." unique_id=686744199 node_paths=PackedStringArray("node_sm")]
+[node name="StateMachineController" type="Node" parent="." unique_id=686744199 node_paths=PackedStringArray("node_sm") groups=["enemy"]]
 script = ExtResource("2_whfpu")
 node_sm = NodePath("../StateMachine")
 
