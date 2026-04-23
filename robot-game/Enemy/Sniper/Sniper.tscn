@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://2juvab3o8tfv"]
+
+[ext_resource type="Script" uid="uid://c03bskq4ysno2" path="res://Enemy/Sniper/sniper.gd" id="1_koxo3"]
+[ext_resource type="Script" uid="uid://de4sxpnx75427" path="res://Enemy/Sniper/gravity.gd" id="1_px50s"]
+[ext_resource type="Script" uid="uid://drm8qns87g6i8" path="res://Enemy/Sniper/state_machine_controller.gd" id="2_fl55x"]
+[ext_resource type="Script" uid="uid://dv23yn70a7ec6" path="res://Scripts/node_sm.gd" id="3_xfvuu"]
+[ext_resource type="Script" uid="uid://okc48s4njxp" path="res://Enemy/Sniper/idle.gd" id="4_w7rft"]
+[ext_resource type="Script" uid="uid://d3g620feqygyi" path="res://Enemy/Sniper/attack.gd" id="5_cw6en"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jhe6u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ykha2"]
+size = Vector2(40, 51)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iper6"]
+size = Vector2(854, 295)
+
+[node name="Sniper" type="CharacterBody2D" unique_id=94115652]
+script = ExtResource("1_koxo3")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=579292674]
+position = Vector2(0, 0.5)
+scale = Vector2(40, 51)
+mesh = SubResource("BoxMesh_jhe6u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1478975202]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ykha2")
+
+[node name="Gravity" type="Node" parent="." unique_id=661763956 node_paths=PackedStringArray("char_body_2d")]
+script = ExtResource("1_px50s")
+char_body_2d = NodePath("..")
+
+[node name="StateMachineController" type="Node" parent="." unique_id=850677960 node_paths=PackedStringArray("node_sm")]
+script = ExtResource("2_fl55x")
+node_sm = NodePath("../StateMachine")
+
+[node name="StateMachine" type="Node" parent="." unique_id=610807379 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_xfvuu")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" unique_id=290784467 node_paths=PackedStringArray("char_body_2d")]
+script = ExtResource("4_w7rft")
+char_body_2d = NodePath("../..")
+
+[node name="Attack" type="Node" parent="StateMachine" unique_id=2088236952 node_paths=PackedStringArray("sniper")]
+script = ExtResource("5_cw6en")
+sniper = NodePath("../..")
+speed = 50
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=2089762723]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=883000723]
+position = Vector2(-1, -120)
+shape = SubResource("RectangleShape2D_iper6")
+debug_color = Color(0.9477455, 0.20789403, 0.26171806, 0.41960785)
+
+[node name="Initial Shoot" type="Marker2D" parent="." unique_id=711414762]
+position = Vector2(32, -2)
+
+[node name="Bullet Timer" type="Timer" parent="." unique_id=877213533]
+wait_time = 2.0
+autostart = true
+
+[connection signal="body_entered" from="DetectionArea" to="StateMachineController" method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="StateMachineController" method="_on_detection_area_body_exited"]
+[connection signal="timeout" from="Bullet Timer" to="StateMachine/Attack" method="_on_bullet_timer_timeout"]
