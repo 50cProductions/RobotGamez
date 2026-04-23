@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var bullet = preload("res://Enemy/Abilities/Bullet/bullet.tscn")
+var laser = preload("res://Enemy/Abilities/Laser/laser.tscn")
 
 
 @onready var shoot_marker: Marker2D = $"Initial Shoot"

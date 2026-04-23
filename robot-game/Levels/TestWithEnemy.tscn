@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://p0j08maqlp88" path="res://Enemy/Robo/Robo.tscn" id="3_sp575"]
 [ext_resource type="PackedScene" uid="uid://c05dos5uqad4d" path="res://Player/Player.tscn" id="3_yrufy"]
 [ext_resource type="PackedScene" uid="uid://2juvab3o8tfv" path="res://Enemy/Sniper/Sniper.tscn" id="4_7468b"]
+[ext_resource type="PackedScene" uid="uid://cviooeyxcb46x" path="res://Enemy/Laser Robo/LaserRobo.tscn" id="5_yrufy"]
 
 [sub_resource type="GDScript" id="GDScript_myinc"]
 script/source = "extends Node2D
@@ -85,3 +86,6 @@ position = Vector2(759, 161)
 
 [node name="Sniper" parent="." unique_id=496305188 instance=ExtResource("4_7468b")]
 position = Vector2(466, 163)
+
+[node name="Laser Robo" parent="." unique_id=1162154682 instance=ExtResource("5_yrufy")]
+position = Vector2(-309, 158)
