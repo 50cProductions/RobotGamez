@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bethyq0vn5322"]
 
-[ext_resource type="Script" uid="uid://jidbltsn2oet" path="res://Bullet/bullet.gd" id="1_2dao8"]
+[ext_resource type="Script" uid="uid://jidbltsn2oet" path="res://Enemy/Abilities/Bullet/bullet.gd" id="1_2dao8"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_v2uyx"]
 radius = 12.808
