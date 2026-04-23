@@ -34,6 +34,8 @@ func on_physics_process(delta: float) -> void:
 
 func action_shoot(delta: float, direction: int):
 	var laser_instance = laser_enemy.laser.instantiate() as Node2D
+	var calculated_laser_length = laser_enemy.detection_shape.shape.size.x / 2.0
+	laser_instance.max_length = calculated_laser_length
 	var offset = player.global_position + Vector2(0, -16)
 	var dir_to_player = (offset - laser_enemy.shoot_marker.global_position).normalized()
 	laser_instance.direction = dir_to_player
