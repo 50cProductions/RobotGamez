@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bethyq0vn5322"]
+
+[ext_resource type="Script" uid="uid://jidbltsn2oet" path="res://Bullet/bullet.gd" id="1_2dao8"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_v2uyx"]
+radius = 12.808
+height = 30.0
+
+[sub_resource type="MeshTexture" id="MeshTexture_2dao8"]
+
+[node name="Bullet" type="MeshInstance2D" unique_id=1284771177]
+scale = Vector2(1.1644002, 1)
+mesh = SubResource("SphereMesh_v2uyx")
+texture = SubResource("MeshTexture_2dao8")
+script = ExtResource("1_2dao8")
+
+[node name="Timer" type="Timer" parent="." unique_id=303797299]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
