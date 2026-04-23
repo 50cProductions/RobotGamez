@@ -55,13 +55,5 @@ position = Vector2(-1, -43.5)
 shape = SubResource("RectangleShape2D_hagnb")
 debug_color = Color(0.9477455, 0.20789403, 0.26171806, 0.41960785)
 
-[node name="Initial Shoot" type="Marker2D" parent="." unique_id=711414763]
-position = Vector2(32, -2)
-
-[node name="Laser Timer" type="Timer" parent="." unique_id=877215533]
-wait_time = 2.0
-autostart = true
-
 [connection signal="body_entered" from="DetectionArea" to="StateMachineController" method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="StateMachineController" method="_on_detection_area_body_exited"]
-[connection signal="timeout" from="Laser Timer" to="StateMachine/Attack" method="_on_laser_timer_timeout"]
