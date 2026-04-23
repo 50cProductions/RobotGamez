@@ -178,3 +178,7 @@ func _on_inven_activate_pressed() -> void:
 	else:
 		inven_activate_animation.play("Deactive")
 		inven_activated = false
+
+
+func _on_level_1_pressed() -> void:
+	get_tree().change_scene_to_file("res://UI/WinScreen.tscn")

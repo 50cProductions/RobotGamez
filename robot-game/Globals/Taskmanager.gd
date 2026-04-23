@@ -19,10 +19,18 @@ var Robot5: bool
 var robot_equipped: String
 
 #signals
+signal spiked
 signal computer_hacked
+
+#Player Stats
+var max_health: int = 100
+var current_health: int = 100
+var lives: int = 3
+var start_position: Vector2
+
+signal health_changed(new_value)
 
 #Room Changing System
 var activate: bool = false
-
 var PlayerPos: Vector2
 var PlayerJumpOnEnter: bool

@@ -1,13 +1,7 @@
 extends CharacterBody2D
 
 # Stats
-var max_health: int = 100
-var current_health: int = 100
-var lives: int = 3
-var start_position: Vector2
 
-# Signals
-signal health_changed(new_value)
 
 # Node References
 @export var camera: Camera2D
@@ -59,6 +53,7 @@ const INVINCIBILITY_DURATION: float = 1.0 # مدة المناعة (ثانية و
 
 
 func _ready() -> void:
+	print(Taskmanager.current_health)
 	if Taskmanager.activate:
 		global_position = Taskmanager.PlayerPos
 		if Taskmanager.PlayerJumpOnEnter:
@@ -69,13 +64,15 @@ func _ready() -> void:
 			jump_tween.chain().tween_property(self, "scale",
 			Vector2(1.0, 1.0), 0.1)
 		Taskmanager.activate = false
-	start_position = global_position
-	current_health = max_health
+	Taskmanager.start_position = global_position
 	add_to_group("player")
 	AttackArea.get_node("CollisionShape2D").disabled = true
 	AttackArea.connect("area_entered", _attack_area_hit)
 	AttackArea.connect("body_entered", _attack_area_hit)
+	
+	Taskmanager.spiked.connect(spiked)
 	camera.top_level = true
+	_update_health_ui()
 	
 
 func _physics_process(delta: float) -> void:
@@ -229,7 +226,7 @@ func take_damage(amount: int, trap_pos: Vector2):
 		return
 	
 	is_invincible = true
-	current_health -= amount
+	Taskmanager.current_health -= amount
 	
 	var direction = 1 if global_position.x > trap_pos.x else -1
 	velocity.x = direction * KNOCKBACK_FORCE
@@ -238,32 +235,32 @@ func take_damage(amount: int, trap_pos: Vector2):
 	move_and_slide()
 	_update_health_ui()
 	
-	if current_health <= 0:
+	if Taskmanager.current_health <= 0:
 		handle_respawn()
 	else:
 		start_invincibility_timer()
 
 func _update_health_ui():
 	if health_bar:
-		health_bar.value = current_health
+		health_bar.value = Taskmanager.current_health
 		var new_style = health_bar.get_theme_stylebox("fill").duplicate()
-		if current_health <= 30:
+		if Taskmanager.current_health <= 30:
 			new_style.bg_color = Color(1, 0, 0)
-		elif current_health <= 60:
+		elif Taskmanager.current_health <= 60:
 			new_style.bg_color = Color(1, 1, 0)
 		else:
 			new_style.bg_color = Color(0, 1, 0)
 		health_bar.add_theme_stylebox_override("fill", new_style)
 
 func handle_respawn():
-	lives -= 1
+	Taskmanager.lives -= 1
 	is_invincible = false
 	CharacterSprite.modulate.a = 1.0
 	
-	if lives > 0:
-		global_position = start_position
-		current_health = max_health
+	if Taskmanager.lives > 0:
+		Taskmanager.current_health = Taskmanager.max_health
 		_update_health_ui()
+		get_tree().reload_current_scene()
 	else:
 		game_over()
 
@@ -275,6 +272,9 @@ func start_invincibility_timer():
 	await get_tree().create_timer(INVINCIBILITY_DURATION).timeout
 	is_invincible = false
 	CharacterSprite.modulate.a = 1.0
+
+func spiked():
+	global_position = Taskmanager.start_position 
 
 func game_over():
 	get_tree().change_scene_to_file("res://UI/GameOverScreen.tscn")

@@ -1704,6 +1704,7 @@ offset_bottom = 40.0
 [connection signal="pressed" from="CenterContainer/Robots/BackSelect" to="." method="_on_back_select_pressed"]
 [connection signal="pressed" from="CenterContainer/Robots/Craft" to="." method="_on_craft_pressed"]
 [connection signal="pressed" from="CenterContainer/Robots/Inventory/InvenActivate" to="." method="_on_inven_activate_pressed"]
+[connection signal="pressed" from="CenterContainer/Missions/Control/Level1" to="." method="_on_level_1_pressed"]
 [connection signal="pressed" from="CenterContainer/Missions/Left" to="CenterContainer/Missions" method="_on_left_pressed"]
 [connection signal="pressed" from="CenterContainer/Missions/Right" to="CenterContainer/Missions" method="_on_right_pressed"]
 [connection signal="pressed" from="CenterContainer/Missions/BackSelect" to="." method="_on_back_select_pressed"]
