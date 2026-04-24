@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://clv4fpiok3kdd"]
 
 [ext_resource type="PackedScene" uid="uid://dxi2ncck3jngv" path="res://Enemy/Enemy base/enemy_base.tscn" id="2_85xes"]
-[ext_resource type="Script" uid="uid://bvwr2m261sbbs" path="res://Misc/camerafollow_x.gd" id="2_lksy3"]
 [ext_resource type="PackedScene" uid="uid://p0j08maqlp88" path="res://Enemy/Robo/Robo.tscn" id="3_sp575"]
 [ext_resource type="PackedScene" uid="uid://c05dos5uqad4d" path="res://Player/Player.tscn" id="3_yrufy"]
 [ext_resource type="PackedScene" uid="uid://2juvab3o8tfv" path="res://Enemy/Sniper/Sniper.tscn" id="4_7468b"]
@@ -67,10 +66,8 @@ shape = SubResource("RectangleShape2D_njov2")
 position = Vector2(26, 156)
 camera = NodePath("Camera2D")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=660183255 node_paths=PackedStringArray("player")]
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=660183255]
 position_smoothing_enabled = true
-script = ExtResource("2_lksy3")
-player = NodePath("..")
 
 [node name="EnemyBase" parent="." unique_id=1565897922 node_paths=PackedStringArray("movement_range") instance=ExtResource("2_85xes")]
 position = Vector2(927, 108)
@@ -91,4 +88,4 @@ position = Vector2(287, 161)
 position = Vector2(585, -262)
 
 [node name="Laser Robo" parent="." unique_id=1162154682 instance=ExtResource("5_yrufy")]
-position = Vector2(-172, 185)
+position = Vector2(-309, 158)
