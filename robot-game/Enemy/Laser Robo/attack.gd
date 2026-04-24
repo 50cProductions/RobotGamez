@@ -1,7 +1,7 @@
 extends NodeState
 
 @onready var laser_reset_timer = $"../../Laser Reset Timer"
-
+@onready var sprite: Sprite2D = $"../../Sprite"
 @export var laser_enemy: CharacterBody2D
 @export var speed: int
 var player: CharacterBody2D
@@ -16,9 +16,10 @@ func on_physics_process(delta: float) -> void:
 	
 	if laser_enemy.global_position > player.global_position:
 		direction = -1
+		sprite.flip_h = true
 	elif laser_enemy.global_position < player.global_position:
 		direction = 1
-		
+		sprite.flip_h = false
 	if direction > 0:
 		laser_enemy.shoot_marker.position.x = laser_enemy.shoot_marker_posi.x
 	elif direction < 0:
@@ -29,6 +30,7 @@ func on_physics_process(delta: float) -> void:
 		can_shoot = false
 		laser_reset_timer.start()
 		
+	
 	laser_enemy.move_and_slide()
 
 

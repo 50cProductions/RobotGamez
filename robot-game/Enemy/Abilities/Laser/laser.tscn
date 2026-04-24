@@ -12,7 +12,7 @@ width = 8.0
 default_color = Color(1, 0.1, 0.1, 1)
 
 [node name="Timer" type="Timer" parent="." unique_id=1048518675]
-wait_time = 0.2
+wait_time = 2.0
 one_shot = true
 autostart = true
 

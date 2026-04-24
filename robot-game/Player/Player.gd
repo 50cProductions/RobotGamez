@@ -277,6 +277,8 @@ func spiked():
 	global_position = Taskmanager.start_position 
 
 func game_over():
+
+
 	get_tree().change_scene_to_file("res://UI/GameOverScreen.tscn")
 
 

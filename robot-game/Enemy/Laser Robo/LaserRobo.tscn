@@ -2,31 +2,155 @@
 
 [ext_resource type="Script" uid="uid://bu7v76p5q1pdc" path="res://Enemy/Laser Robo/laser_robo.gd" id="1_i3t3t"]
 [ext_resource type="Script" uid="uid://cgk33f3qkbn42" path="res://Enemy/Laser Robo/gravity.gd" id="2_5kgjn"]
+[ext_resource type="Texture2D" uid="uid://dam2q2o2lk4py" path="res://Enemy/Laser Robo/LaserRoboSprite.png" id="2_hn7rb"]
 [ext_resource type="Script" uid="uid://bjas4aeaq6ht5" path="res://Enemy/Laser Robo/state_machine_controller.gd" id="3_hn7rb"]
 [ext_resource type="Script" uid="uid://dv23yn70a7ec6" path="res://Scripts/node_sm.gd" id="4_i25nr"]
 [ext_resource type="Script" uid="uid://d0xtd2ijoel8x" path="res://Enemy/Laser Robo/idle.gd" id="5_q144x"]
 [ext_resource type="Script" uid="uid://dqrnawy3g6n2t" path="res://Enemy/Laser Robo/attack.gd" id="6_g4men"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_jhe6u"]
+[sub_resource type="Gradient" id="Gradient_5kgjn"]
+offsets = PackedFloat32Array(0.63071895, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hn7rb"]
+gradient = SubResource("Gradient_5kgjn")
+
+[sub_resource type="Curve" id="Curve_i25nr"]
+_data = [Vector2(0.516129, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_q144x"]
+curve = SubResource("Curve_i25nr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g4men"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+angle_min = 1.0728835e-05
+angle_max = 1.0728835e-05
+spread = 180.0
+initial_velocity_max = 291.84
+gravity = Vector3(-10, -1000, 0)
+scale_min = 5.0
+scale_max = 10.0
+scale_curve = SubResource("CurveTexture_q144x")
+color_ramp = SubResource("GradientTexture1D_hn7rb")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ykha2"]
-size = Vector2(40, 51)
+size = Vector2(166, 226)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iper6"]
 size = Vector2(533, 295)
 
+<<<<<<< Updated upstream
 [node name="Laser Robo" type="CharacterBody2D" unique_id=94115652 groups=["enemy"]]
 collision_layer = 4
 collision_mask = 3
+=======
+[sub_resource type="Animation" id="Animation_j0bch"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -111)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_7qpys"]
+resource_name = "idle"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.448), Vector2(0.5, 0.51)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -111), Vector2(0, -127)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aec1k"]
+_data = {
+&"RESET": SubResource("Animation_j0bch"),
+&"idle": SubResource("Animation_7qpys")
+}
+
+[node name="Laser Robo" type="CharacterBody2D" unique_id=94115652]
+>>>>>>> Stashed changes
 script = ExtResource("1_i3t3t")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=579292674]
-position = Vector2(0, 0.5)
-scale = Vector2(40, 51)
-mesh = SubResource("BoxMesh_jhe6u")
+[node name="Look" type="Node2D" parent="." unique_id=417278927]
+position = Vector2(0, -121)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1704101450]
+position = Vector2(-32, -192)
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_g4men")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=595745183]
+position = Vector2(0, -111)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_hn7rb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1478975202]
-position = Vector2(0, 0.5)
+position = Vector2(3, -113)
 shape = SubResource("RectangleShape2D_ykha2")
 
 [node name="Gravity" type="Node" parent="." unique_id=661763956 node_paths=PackedStringArray("char_body_2d")]
@@ -51,20 +175,25 @@ laser_enemy = NodePath("../..")
 speed = 50
 
 [node name="DetectionArea" type="Area2D" parent="." unique_id=2089762723]
+position = Vector2(0, -26)
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=883000723]
-position = Vector2(-0.5, -120)
+position = Vector2(-0.5, -225)
+scale = Vector2(1.7600002, 1.7600002)
 shape = SubResource("RectangleShape2D_iper6")
 debug_color = Color(0.9477455, 0.20789403, 0.26171806, 0.41960785)
 
 [node name="Initial Shoot" type="Marker2D" parent="." unique_id=711414762]
-position = Vector2(32, -2)
+position = Vector2(58, -135)
 
 [node name="Laser Reset Timer" type="Timer" parent="." unique_id=877213533]
-wait_time = 2.0
+wait_time = 4.0
 autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=96574865]
+libraries/ = SubResource("AnimationLibrary_aec1k")
 
 [connection signal="body_entered" from="DetectionArea" to="StateMachineController" method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="StateMachineController" method="_on_detection_area_body_exited"]
