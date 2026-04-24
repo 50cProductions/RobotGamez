@@ -1,21 +1,58 @@
 [gd_scene format=3 uid="uid://bethyq0vn5322"]
 
 [ext_resource type="Script" uid="uid://jidbltsn2oet" path="res://Enemy/Abilities/Bullet/bullet.gd" id="1_2dao8"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_v2uyx"]
-radius = 12.808
-height = 30.0
+[ext_resource type="Texture2D" uid="uid://d24vo4bw7sxqm" path="res://Enemy/Abilities/All_Fire_Bullet_Pixel_16x16.png" id="2_q3tk5"]
 
 [sub_resource type="MeshTexture" id="MeshTexture_2dao8"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3tk5"]
+atlas = ExtResource("2_q3tk5")
+region = Rect2(176, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsiae"]
+atlas = ExtResource("2_q3tk5")
+region = Rect2(192, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6njis"]
+atlas = ExtResource("2_q3tk5")
+region = Rect2(208, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0t5g"]
+atlas = ExtResource("2_q3tk5")
+region = Rect2(224, 128, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0srl2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3tk5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rsiae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6njis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h0t5g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_w2qky"]
-radius = 15.164111
+radius = 10.498008
 
 [node name="Bullet" type="MeshInstance2D" unique_id=1284771177]
 scale = Vector2(1.1644002, 1)
-mesh = SubResource("SphereMesh_v2uyx")
 texture = SubResource("MeshTexture_2dao8")
 script = ExtResource("1_2dao8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1719212242]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_0srl2")
+frame_progress = 0.87079597
 
 [node name="Timer" type="Timer" parent="." unique_id=303797299]
 wait_time = 5.0

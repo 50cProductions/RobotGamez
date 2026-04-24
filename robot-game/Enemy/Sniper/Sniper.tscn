@@ -3,11 +3,10 @@
 [ext_resource type="Script" uid="uid://c03bskq4ysno2" path="res://Enemy/Sniper/sniper.gd" id="1_koxo3"]
 [ext_resource type="Script" uid="uid://de4sxpnx75427" path="res://Enemy/Sniper/gravity.gd" id="1_px50s"]
 [ext_resource type="Script" uid="uid://drm8qns87g6i8" path="res://Enemy/Sniper/state_machine_controller.gd" id="2_fl55x"]
+[ext_resource type="Texture2D" uid="uid://dd7yfd2ggi1xn" path="res://Enemy/Sniper/SN Sprite.png" id="2_y3j4g"]
 [ext_resource type="Script" uid="uid://dv23yn70a7ec6" path="res://Scripts/node_sm.gd" id="3_xfvuu"]
 [ext_resource type="Script" uid="uid://okc48s4njxp" path="res://Enemy/Sniper/idle.gd" id="4_w7rft"]
 [ext_resource type="Script" uid="uid://d3g620feqygyi" path="res://Enemy/Sniper/attack.gd" id="5_cw6en"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_jhe6u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ykha2"]
 size = Vector2(40, 51)
@@ -20,10 +19,10 @@ collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_koxo3")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=579292674]
+[node name="Sprite" type="Sprite2D" parent="." unique_id=193246128]
 position = Vector2(0, 0.5)
-scale = Vector2(40, 51)
-mesh = SubResource("BoxMesh_jhe6u")
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_y3j4g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1478975202]
 position = Vector2(0, 0.5)
