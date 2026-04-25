@@ -1,33 +1,34 @@
 [gd_scene format=3 uid="uid://dvknkp0r4p63g"]
 
-[ext_resource type="Texture2D" uid="uid://q5qc8pbb5v4i" path="res://Assets/Laser Shot/LaserShot.png" id="1_pw7fc"]
+[ext_resource type="Script" uid="uid://y1axe67uqyw" path="res://Good Robo/Laser Good Robo/good_laser.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://q5qc8pbb5v4i" path="res://Assets/Laser Shot/LaserShot.png" id="2_pw7fc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pw7fc"]
-atlas = ExtResource("1_pw7fc")
+atlas = ExtResource("2_pw7fc")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ocu7u"]
-atlas = ExtResource("1_pw7fc")
+atlas = ExtResource("2_pw7fc")
 region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u20vh"]
-atlas = ExtResource("1_pw7fc")
+atlas = ExtResource("2_pw7fc")
 region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ofbq"]
-atlas = ExtResource("1_pw7fc")
+atlas = ExtResource("2_pw7fc")
 region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8fvw4"]
-atlas = ExtResource("1_pw7fc")
+atlas = ExtResource("2_pw7fc")
 region = Rect2(256, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_apyr7"]
-atlas = ExtResource("1_pw7fc")
+atlas = ExtResource("2_pw7fc")
 region = Rect2(320, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8v8cq"]
-atlas = ExtResource("1_pw7fc")
+atlas = ExtResource("2_pw7fc")
 region = Rect2(384, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ney8a"]
@@ -56,10 +57,25 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 10.0
 }]
 
-[node name="GoodLaser" type="Node2D" unique_id=1083595549]
+[sub_resource type="CircleShape2D" id="CircleShape2D_pw7fc"]
+radius = 8.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1701114971]
+[node name="GoodLaser" type="Node2D" unique_id=95828156]
+script = ExtResource("1_script")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=576619723]
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ney8a")
+
+[node name="HitBox" type="Area2D" parent="." unique_id=1620436022]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=452938337]
+shape = SubResource("CircleShape2D_pw7fc")
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

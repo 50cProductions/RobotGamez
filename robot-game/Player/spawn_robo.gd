@@ -29,6 +29,7 @@ func spawn_laser_robo():
 		return
 		
 	laser_good_robo = laser_good_robo_scene.instantiate() as Node2D
+	laser_good_robo.global_position = player.global_position
 	player.get_parent().add_child(laser_good_robo)
 	player.robo_available = true
 
