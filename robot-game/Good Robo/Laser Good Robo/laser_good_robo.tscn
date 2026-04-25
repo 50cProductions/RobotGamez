@@ -1,21 +1,28 @@
 [gd_scene format=3 uid="uid://d2ep25ue0dr8e"]
 
+[ext_resource type="Script" uid="uid://dbx42to8dvmcy" path="res://Good Robo/Laser Good Robo/gravity.gd" id="1_kdtnu"]
+
 [sub_resource type="GDScript" id="GDScript_0b285"]
 script/source = "extends CharacterBody2D
+
+var good_laser_scene = preload(\"res://Good Robo/Abilities/Good Laser/good_laser.tscn\")
 "
 
 [sub_resource type="BoxMesh" id="BoxMesh_0b285"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kdtnu"]
-size = Vector2(4.5, 6.5)
+size = Vector2(20, 29)
 
 [node name="LaserGoodRobo" type="CharacterBody2D" unique_id=1826689140]
 script = SubResource("GDScript_0b285")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1987849441]
-position = Vector2(-3.5762787e-07, 0)
-scale = Vector2(4.5, 6.5)
+scale = Vector2(20.250002, 29.25)
 mesh = SubResource("BoxMesh_0b285")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=758365978]
 shape = SubResource("RectangleShape2D_kdtnu")
+
+[node name="Gravity" type="Node" parent="." unique_id=1066271522 node_paths=PackedStringArray("char_body_2d")]
+script = ExtResource("1_kdtnu")
+char_body_2d = NodePath("..")
