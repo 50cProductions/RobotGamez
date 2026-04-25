@@ -11,6 +11,8 @@ extends CharacterBody2D
 @onready var AttackSprite := $Attack/Slash
 @onready var AttackArea := $Attack/Slash/AttackArea2D
 
+@export var slash_damage = 40
+
 # UI References
 @onready var health_bar = $CanvasLayer/CanvasLayer/ProgressBar
 const SPEED = 300.0
@@ -51,6 +53,7 @@ var attack_num: int
 var is_invincible: bool = false
 const INVINCIBILITY_DURATION: float = 1.0 # مدة المناعة (ثانية واحدة)
 
+var robo_available = false
 
 func _ready() -> void:
 	print(Taskmanager.current_health)
@@ -79,7 +82,7 @@ func _physics_process(delta: float) -> void:
 	# Dash timers
 	dash_timer = max(dash_timer - delta, 0.0)
 	dash_cooldown_timer = max(dash_cooldown_timer - delta, 0.0)
-	if dash_timer <= 0.0 and is_on_floor() or is_on_wall():
+	if dash_timer <= 0.0 and is_on_floor() or is_really_on_wall():
 		can_dash = true
 
 	# Start dash
@@ -111,7 +114,7 @@ func _physics_process(delta: float) -> void:
 			else :
 				CharacterSprite.play("Idle") 
 		else :
-			if is_on_wall() and (Input.is_action_pressed("left") or Input.is_action_pressed("right")):
+			if is_really_on_wall() and (Input.is_action_pressed("left") or Input.is_action_pressed("right")):
 				CharacterSprite.play("WallGrab")
 			else:
 				CharacterSprite.play("Jump")
@@ -152,7 +155,7 @@ func _physics_process(delta: float) -> void:
 				velocity.x = -look_dir.x * WALL_JUMP_PUSH_FORCE
 				wall_jump_lock = WALL_JUMP_LOCK_TIME
 	
-	if !is_on_floor() and velocity.y > 0 and is_on_wall() and velocity.x != 0:
+	if !is_on_floor() and velocity.y > 0 and is_really_on_wall() and velocity.x != 0:
 		look_dir.x = sign(velocity.x)
 		wall_contact_coyote = WALL_CONTACT_COYOTE_TIME
 		velocity.y = GRAVITY_WALL
@@ -275,12 +278,26 @@ func start_invincibility_timer():
 	is_invincible = false
 	CharacterSprite.modulate.a = 1.0
 
+# This is needed to not detect enemies as a wall
+func is_really_on_wall() -> bool:
+	if not is_on_wall():
+		return false
+		
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		if abs(collision.get_normal().x) > 0.5:
+			if not collision.get_collider().is_in_group("enemy"):
+				return true
+	return false
+
 func spiked():
 	global_position = Taskmanager.start_position 
 
 func game_over():
 	get_tree().change_scene_to_file("res://UI/GameOverScreen.tscn")
 
+func get_damage_amount():
+	return slash_damage
 
 func _on_hurt_box_body_entered(body: Node2D) -> void:
 	print("entered enemy")

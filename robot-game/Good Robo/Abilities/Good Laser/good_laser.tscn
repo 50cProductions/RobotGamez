@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dvknkp0r4p63g"]
+
+[ext_resource type="Script" uid="uid://y1axe67uqyw" path="res://Good Robo/Laser Good Robo/good_laser.gd" id="1_script"]
+
+[sub_resource type="Curve" id="Curve_beam"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.5), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_beam"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0.8, 1, 0.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_beam"]
+size = Vector2(2000, 40)
+
+[node name="GoodLaser" type="Node2D" unique_id=289740023]
+script = ExtResource("1_script")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=743773871]
+points = PackedVector2Array(0, 0, 2000, 0)
+width = 50.0
+width_curve = SubResource("Curve_beam")
+gradient = SubResource("Gradient_beam")
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="HitBox" type="Area2D" parent="." unique_id=2002873723]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=488247178]
+position = Vector2(1000, 0)
+shape = SubResource("RectangleShape2D_beam")
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
