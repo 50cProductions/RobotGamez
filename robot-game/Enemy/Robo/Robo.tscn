@@ -2,31 +2,30 @@
 
 [ext_resource type="Script" uid="uid://dnvpmrshvdjfh" path="res://Enemy/Robo/gravity.gd" id="1_1sruw"]
 [ext_resource type="Script" uid="uid://bhrvmlqoh4642" path="res://Enemy/Robo/robo.gd" id="1_2rc14"]
+[ext_resource type="Texture2D" uid="uid://cy4a61cn2bq0i" path="res://Enemy/Robo/RB Sprite.png" id="2_a52ww"]
 [ext_resource type="Script" uid="uid://dv23yn70a7ec6" path="res://Scripts/node_sm.gd" id="2_jhe6u"]
 [ext_resource type="Script" uid="uid://dql5lkkbeiam0" path="res://Enemy/Robo/state_machine_controller.gd" id="2_n400u"]
 [ext_resource type="Script" uid="uid://b4nn5bubk6wdd" path="res://Enemy/Robo/idle.gd" id="3_ykha2"]
 [ext_resource type="Script" uid="uid://chowq5xc0knt1" path="res://Enemy/Robo/attack.gd" id="4_hagnb"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_jhe6u"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ykha2"]
-size = Vector2(40, 51)
+size = Vector2(75, 85)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hagnb"]
-size = Vector2(216, 145)
+size = Vector2(216, 279)
 
 [node name="Robo" type="CharacterBody2D" unique_id=94115652 groups=["enemy"]]
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_2rc14")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=579292674]
-position = Vector2(0, 0.5)
-scale = Vector2(40, 51)
-mesh = SubResource("BoxMesh_jhe6u")
+[node name="MeshInstance2D" type="Sprite2D" parent="." unique_id=62556277]
+position = Vector2(0, -21)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_a52ww")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1478975202]
-position = Vector2(0, 0.5)
+position = Vector2(4.5, -16.5)
 shape = SubResource("RectangleShape2D_ykha2")
 
 [node name="Gravity" type="Node" parent="." unique_id=661763956 node_paths=PackedStringArray("char_body_2d")]
@@ -55,7 +54,8 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=883000723]
-position = Vector2(-1, -43.5)
+position = Vector2(-1, -110.5)
+scale = Vector2(2.6399999, 1)
 shape = SubResource("RectangleShape2D_hagnb")
 debug_color = Color(0.9477455, 0.20789403, 0.26171806, 0.41960785)
 

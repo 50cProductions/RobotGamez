@@ -1626,19 +1626,6 @@ position = Vector2(946, -303)
 [node name="CollisionShape2D" parent="Enemies/Sniper/DetectionArea" parent_id_path=PackedInt32Array(94115652, 2089762723) index="0" unique_id=883000723]
 scale = Vector2(1.8, 2.3200002)
 
-[node name="EnemyBase" parent="Enemies" unique_id=1565897922 node_paths=PackedStringArray("movement_range") instance=ExtResource("6_25tfs")]
-position = Vector2(106, -107)
-speed = 2100
-movement_range = NodePath("MovementRange")
-
-[node name="MovementRange" type="Node2D" parent="Enemies/EnemyBase" unique_id=1703189930]
-
-[node name="Start" type="Marker2D" parent="Enemies/EnemyBase/MovementRange" unique_id=1617349500]
-position = Vector2(9, 22)
-
-[node name="End" type="Marker2D" parent="Enemies/EnemyBase/MovementRange" unique_id=2113423762]
-position = Vector2(509, 22)
-
 [node name="EnemyBase2" parent="Enemies" unique_id=1248892546 node_paths=PackedStringArray("movement_range") instance=ExtResource("6_25tfs")]
 position = Vector2(610, -107)
 speed = 2100

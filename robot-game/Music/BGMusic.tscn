@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dc7j7poeuk2el"]
+
+[ext_resource type="AudioStream" uid="uid://dtfkf8fo4ry3u" path="res://Music/Calm_L1.MP3" id="1_o63b6"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" unique_id=1353609424]
+scale = Vector2(1.0151515, 1)
+stream = ExtResource("1_o63b6")
+autoplay = true

@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://c05dos5uqad4d" path="res://Player/Player.tscn" id="4_eyo23"]
 [ext_resource type="Script" uid="uid://b0fye6lfb8w70" path="res://Misc/camerafollow.gd" id="5_ma7cf"]
 [ext_resource type="PackedScene" uid="uid://b7216ahuwisg5" path="res://Misc/door_area_2d.tscn" id="6_lpx70"]
+[ext_resource type="PackedScene" uid="uid://cviooeyxcb46x" path="res://Enemy/Laser Robo/LaserRobo.tscn" id="7_jryh0"]
+[ext_resource type="PackedScene" uid="uid://p0j08maqlp88" path="res://Enemy/Robo/Robo.tscn" id="8_2wmlg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_22lwo"]
 texture = ExtResource("3_2wmlg")
@@ -1630,3 +1632,9 @@ PlayerPos = Vector2(-712, -51)
 position = Vector2(1061, -94)
 scale = Vector2(1, 7.599998)
 shape = SubResource("RectangleShape2D_mao11")
+
+[node name="Laser Robo" parent="." unique_id=94115652 instance=ExtResource("7_jryh0")]
+position = Vector2(-108, -47)
+
+[node name="Robo" parent="." unique_id=1400302203 instance=ExtResource("8_2wmlg")]
+position = Vector2(742, -47)

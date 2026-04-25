@@ -23,6 +23,7 @@ buses/default_bus_layout="uid://cl0wma67iesgw"
 
 Taskmanager="*uid://1r3yp66vefpy"
 GameManager="*uid://c4hqhrrtyk8tg"
+BgMusic="*uid://dc7j7poeuk2el"
 
 [display]
 
