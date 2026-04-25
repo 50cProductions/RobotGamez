@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d2ep25ue0dr8e"]
 
 [ext_resource type="Script" uid="uid://dah5usbx5vpr5" path="res://Good Robo/Laser Good Robo/laser_good_robo.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://dbx42to8dvmcy" path="res://Good Robo/Laser Good Robo/gravity.gd" id="2_xi203"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_0b285"]
 
@@ -8,6 +9,7 @@
 size = Vector2(20, 29)
 
 [node name="LaserGoodRobo" type="CharacterBody2D" unique_id=1826689140]
+collision_layer = 8
 script = ExtResource("1_script")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1987849441]
@@ -16,3 +18,7 @@ mesh = SubResource("BoxMesh_0b285")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=758365978]
 shape = SubResource("RectangleShape2D_kdtnu")
+
+[node name="Gravity" type="Node" parent="." unique_id=1577616684 node_paths=PackedStringArray("char_body_2d")]
+script = ExtResource("2_xi203")
+char_body_2d = NodePath("..")

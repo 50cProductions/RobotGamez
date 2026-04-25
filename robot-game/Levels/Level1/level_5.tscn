@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dxi2ncck3jngv" path="res://Enemy/Enemy base/enemy_base.tscn" id="6_25tfs"]
 [ext_resource type="PackedScene" uid="uid://dhxjafeqgfy68" path="res://Misc/computer.tscn" id="7_fri7f"]
 [ext_resource type="PackedScene" uid="uid://bmmq0owdihcke" path="res://Misc/hacking.tscn" id="7_sm1md"]
-[ext_resource type="Script" uid="uid://c6fppn05k6rmh" path="res://Misc/hacking.gd" id="8_0terj"]
+[ext_resource type="Script" path="res://Misc/hacking.gd" id="8_0terj"]
 [ext_resource type="PackedScene" uid="uid://2juvab3o8tfv" path="res://Enemy/Sniper/Sniper.tscn" id="10_0terj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uk5i4"]
