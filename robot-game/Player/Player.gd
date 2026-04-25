@@ -11,6 +11,8 @@ extends CharacterBody2D
 @onready var AttackSprite := $Attack/Slash
 @onready var AttackArea := $Attack/Slash/AttackArea2D
 
+@export var slash_damage = 40
+
 # UI References
 @onready var health_bar = $CanvasLayer/CanvasLayer/ProgressBar
 const SPEED = 300.0
@@ -281,6 +283,8 @@ func spiked():
 func game_over():
 	get_tree().change_scene_to_file("res://UI/GameOverScreen.tscn")
 
+func get_damage_amount():
+	return slash_damage
 
 func _on_hurt_box_body_entered(body: Node2D) -> void:
 	print("entered enemy")
