@@ -2,6 +2,7 @@ extends NodeState
 
 @export var enemy: CharacterBody2D
 @export var slow_speed: int = 50
+@onready var sprite: Sprite2D = $"../../Sprite"
 
 signal point_reached
 
@@ -23,8 +24,10 @@ func on_physics_process(delta: float) -> void:
 
 		if enemy.current_point.x > enemy.position.x:
 			enemy.direction = Vector2.RIGHT
+			sprite.flip_h = false
 		else:
 			enemy.direction = Vector2.LEFT
+			sprite.flip_h = true
 		point_reached.emit()
 
 func enter():

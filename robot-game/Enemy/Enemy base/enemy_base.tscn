@@ -2,12 +2,11 @@
 
 [ext_resource type="Script" uid="uid://b3cubn5f8gvnq" path="res://Enemy/Enemy base/enemy_base.gd" id="1_6oe2u"]
 [ext_resource type="Script" uid="uid://bxbyctixnwo7i" path="res://Enemy/Enemy base/gravity.gd" id="2_kjqrl"]
+[ext_resource type="Texture2D" uid="uid://cy4a61cn2bq0i" path="res://Enemy/Enemy base/EB Sprite.png" id="2_w083l"]
 [ext_resource type="Script" uid="uid://c3n0ywp72fnwc" path="res://Enemy/Enemy base/state_machine_controller.gd" id="2_whfpu"]
 [ext_resource type="Script" uid="uid://dv23yn70a7ec6" path="res://Scripts/node_sm.gd" id="3_bmdbw"]
 [ext_resource type="Script" uid="uid://b2fy8bl3slmo4" path="res://Enemy/Enemy base/idle.gd" id="4_kjqrl"]
 [ext_resource type="Script" uid="uid://6q8yxl0wvrig" path="res://Enemy/Enemy base/walk.gd" id="5_bmdbw"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_qvgeo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2th3i"]
 size = Vector2(40, 51)
@@ -17,10 +16,10 @@ collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_6oe2u")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=508692315]
-position = Vector2(0, 0.5)
-scale = Vector2(40, 51)
-mesh = SubResource("BoxMesh_qvgeo")
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1756012397]
+position = Vector2(-2, -20)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_w083l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1088397618]
 position = Vector2(0, 0.5)

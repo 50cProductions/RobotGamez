@@ -88,4 +88,4 @@ position = Vector2(287, 161)
 position = Vector2(585, -262)
 
 [node name="Laser Robo" parent="." unique_id=1162154682 instance=ExtResource("5_yrufy")]
-position = Vector2(-309, 158)
+position = Vector2(-227, 161)
