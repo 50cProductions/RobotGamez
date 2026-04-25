@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://d2ep25ue0dr8e"]
+
+[sub_resource type="GDScript" id="GDScript_0b285"]
+script/source = "extends CharacterBody2D
+"
+
+[sub_resource type="BoxMesh" id="BoxMesh_0b285"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kdtnu"]
+size = Vector2(4.5, 6.5)
+
+[node name="LaserGoodRobo" type="CharacterBody2D" unique_id=1826689140]
+script = SubResource("GDScript_0b285")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1987849441]
+position = Vector2(-3.5762787e-07, 0)
+scale = Vector2(4.5, 6.5)
+mesh = SubResource("BoxMesh_0b285")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=758365978]
+shape = SubResource("RectangleShape2D_kdtnu")
