@@ -12,7 +12,7 @@
 size = Vector2(40, 51)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iper6"]
-size = Vector2(854, 295)
+size = Vector2(1512, 295)
 
 [node name="Sniper" type="CharacterBody2D" unique_id=94115652 groups=["enemy"]]
 collision_layer = 4

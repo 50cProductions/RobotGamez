@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://bmmq0owdihcke"]
+
+[sub_resource type="Animation" id="Animation_qe470"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["HACKING."]
+}
+
+[sub_resource type="Animation" id="Animation_ouvu5"]
+resource_name = "hacking"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 2.25, 2.5, 2.75, 3, 3.25, 3.5, 3.75, 4, 4.25, 4.5, 4.75, 5, 6.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["
+", "HACKING.", "HACKING..", "HACKING...", "HACKING.", "HACKING..", "HACKING...", "HACKING.", "HACKING..", "HACKING...", "HACKING.", "HACKING..", "HACKING...", "HACKING SUCCESSFUL", "ENEMIES DEPLOYED"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kqs8w"]
+_data = {
+&"RESET": SubResource("Animation_qe470"),
+&"hacking": SubResource("Animation_ouvu5")
+}
+
+[node name="Hacking" type="ColorRect" unique_id=1395979406]
+offset_left = -823.0
+offset_top = -663.0
+offset_right = 823.0
+offset_bottom = 263.0
+color = Color(0.08627451, 0.08627451, 0.08627451, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1700360015]
+layout_mode = 0
+offset_right = 1646.0
+offset_bottom = 926.0
+theme_override_colors/font_color = Color(0.06333327, 0.76, 0, 1)
+theme_override_font_sizes/font_size = 70
+text = "ENEMIES DEPLOYED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1107185828]
+libraries/ = SubResource("AnimationLibrary_kqs8w")

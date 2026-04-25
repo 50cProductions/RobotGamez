@@ -6,6 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://c05dos5uqad4d" path="res://Player/Player.tscn" id="3_fri7f"]
 [ext_resource type="Script" uid="uid://b0fye6lfb8w70" path="res://Misc/camerafollow.gd" id="4_6pra0"]
 [ext_resource type="PackedScene" uid="uid://b7216ahuwisg5" path="res://Misc/door_area_2d.tscn" id="5_sm1md"]
+[ext_resource type="PackedScene" uid="uid://dxi2ncck3jngv" path="res://Enemy/Enemy base/enemy_base.tscn" id="6_25tfs"]
+[ext_resource type="PackedScene" uid="uid://dhxjafeqgfy68" path="res://Misc/computer.tscn" id="7_fri7f"]
+[ext_resource type="PackedScene" uid="uid://bmmq0owdihcke" path="res://Misc/hacking.tscn" id="7_sm1md"]
+[ext_resource type="Script" uid="uid://c6fppn05k6rmh" path="res://Misc/hacking.gd" id="8_0terj"]
+[ext_resource type="PackedScene" uid="uid://2juvab3o8tfv" path="res://Enemy/Sniper/Sniper.tscn" id="10_0terj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uk5i4"]
 texture = ExtResource("2_uk5i4")
@@ -1597,7 +1602,7 @@ position = Vector2(0, 64)
 
 [node name="Movingsaw" parent="Traps_Container" unique_id=218647402 instance=ExtResource("1_uk5i4")]
 position = Vector2(1093, 156)
-distance = 1450.0
+distance = 1300.0
 reverse_direction = true
 
 [node name="Movingsaw2" parent="Traps_Container" unique_id=1397785499 instance=ExtResource("1_uk5i4")]
@@ -1610,6 +1615,43 @@ position = Vector2(-293, 108)
 tile_set = SubResource("TileSet_25tfs")
 layer_0/tile_data = PackedInt32Array(-655338, 2424832, 4, -655339, 2424832, 4, -655340, 2424832, 4, -655341, 2490368, 4, -655342, 2490368, 4, -655343, 2555904, 4, -655344, 2424832, 4, -655345, 2555904, 4, -655346, 2490368, 4, -655347, 2555904, 4, -655348, 2555904, 4, -655349, 2555904, 4, -655350, 2490368, 4, -655351, 2490368, 4, -655352, 2555904, 4, -655353, 2490368, 4, -655354, 2490368, 4, -655355, 2424832, 4, -655356, 2555904, 4, -655357, 2490368, 4, -655358, 2555904, 4, -655359, 2555904, 4, -655360, 2424832, 4, -589825, 2162688, 4, -589826, 2162688, 4, 196613, 2555904, 0, 196612, 2424832, 0, 196611, 2555904, 0, 196610, 2555904, 0, 196609, 2097152, 0, 196608, 2097152, 0, 262143, 2097152, 0, 262142, 2097152, 0, 262141, 2490368, 0, 262140, 2097152, 0, 262139, 2555904, 0, 196614, 2097152, 0, -327683, 2621440, 4, -393219, 2621440, 3, -458755, 2621440, 2, -524291, 2621440, 1, -327684, 2490368, 4, -393220, 2883584, 1, -458756, 2818048, 2, -524292, 2883584, 3, -327685, 2424832, 4, -393221, 2883584, 1, -458757, 2883584, 2, -524293, 2883584, 1, 196605, 3604480, 0, 196606, 3670016, 0, 196607, 3735552, 0, 131072, 3801088, 0, 131073, 3866624, 0, 196603, 3604480, 1, -327694, 2097152, 4, -327693, 2162688, 4, -327692, 2228224, 4, -327691, 2097152, 4, -327690, 2162688, 4, -327689, 2228224, 4, -327688, 2097152, 4, -327687, 2162688, 4, -327686, 2228224, 4, 262130, 2097152, 0, 262131, 2162688, 0, 262132, 2228224, 0, 262133, 2097152, 0, 262134, 2162688, 0, 262135, 2228224, 0, 262136, 2097152, 0, 262137, 2162688, 0, 262138, 2228224, 0, 196615, 2097152, 0, 196616, 2162688, 0, 196617, 2228224, 0, 196618, 2097152, 0, 196619, 2162688, 0, 196620, 2228224, 0, 196621, 2097152, 0, 196622, 2162688, 0, 196623, 2228224, 0, 196624, 2097152, 0, 196625, 2162688, 0, 196626, 2228224, 0, 196627, 2097152, 0, 196628, 2162688, 0, 196629, 2228224, 0, 196630, 2097152, 0, -589801, 2031616, 1, -524265, 2031616, 2, -262121, 2031616, 3, -196585, 2031616, 1, -131049, 2031616, 2, -65513, 2031616, 3, 23, 2031616, 1, 65559, 2031616, 2, 131095, 2031616, 3, -65521, 2621440, 4, -131057, 2621440, 1, -196593, 2621440, 0, -65522, 2490368, 4, -131058, 2752512, 3, -196594, 2424832, 0, -65523, 2424832, 4, -131059, 2818048, 1, -196595, 2555904, 0, -65524, 2424832, 4, -131060, 2818048, 1, -196596, 2555904, 0, -65525, 2490368, 4, -131061, 2752512, 3, -196597, 2490368, 0, -65526, 2424832, 4, -131062, 2752512, 1, -196598, 2424832, 0, -65527, 2424832, 4, -131063, 2752512, 2, -196599, 2424832, 0, -65528, 2555904, 4, -131064, 2752512, 1, -196600, 2555904, 0, -65529, 2490368, 4, -131065, 2818048, 3, -196601, 2555904, 0, -65530, 2424832, 4, -131066, 2818048, 3, -196602, 2555904, 0, -65531, 2359296, 4, -131067, 2359296, 2, -196603, 2359296, 0, -327658, 2424832, 4, -393194, 2490368, 0, -327659, 2490368, 4, -393195, 2424832, 0, -327660, 2424832, 4, -393196, 2424832, 0, -458729, 2031616, 3, -327661, 2359296, 4, -393197, 2359296, 0)
 
+[node name="Computer" parent="." unique_id=1555300069 instance=ExtResource("7_fri7f")]
+position = Vector2(388, -123)
+
+[node name="Enemies" type="Node2D" parent="." unique_id=1162182599]
+
+[node name="Sniper" parent="Enemies" unique_id=94115652 instance=ExtResource("10_0terj")]
+position = Vector2(946, -303)
+
+[node name="CollisionShape2D" parent="Enemies/Sniper/DetectionArea" parent_id_path=PackedInt32Array(94115652, 2089762723) index="0" unique_id=883000723]
+scale = Vector2(1.8, 2.3200002)
+
+[node name="EnemyBase" parent="Enemies" unique_id=1565897922 node_paths=PackedStringArray("movement_range") instance=ExtResource("6_25tfs")]
+position = Vector2(106, -107)
+speed = 2100
+movement_range = NodePath("MovementRange")
+
+[node name="MovementRange" type="Node2D" parent="Enemies/EnemyBase" unique_id=1703189930]
+
+[node name="Start" type="Marker2D" parent="Enemies/EnemyBase/MovementRange" unique_id=1617349500]
+position = Vector2(9, 22)
+
+[node name="End" type="Marker2D" parent="Enemies/EnemyBase/MovementRange" unique_id=2113423762]
+position = Vector2(509, 22)
+
+[node name="EnemyBase2" parent="Enemies" unique_id=1248892546 node_paths=PackedStringArray("movement_range") instance=ExtResource("6_25tfs")]
+position = Vector2(610, -107)
+speed = 2100
+movement_range = NodePath("MovementRange")
+
+[node name="MovementRange" type="Node2D" parent="Enemies/EnemyBase2" unique_id=858982908]
+
+[node name="Start" type="Marker2D" parent="Enemies/EnemyBase2/MovementRange" unique_id=913394039]
+position = Vector2(5, 22)
+
+[node name="End" type="Marker2D" parent="Enemies/EnemyBase2/MovementRange" unique_id=1173383083]
+position = Vector2(-494, 22)
+
 [node name="Player" parent="." unique_id=1816955753 node_paths=PackedStringArray("camera") instance=ExtResource("3_fri7f")]
 position = Vector2(-485, 272)
 camera = NodePath("../Camera2D")
@@ -1621,6 +1663,12 @@ zoom = Vector2(0.7, 0.7)
 script = ExtResource("4_6pra0")
 player = NodePath("../Player")
 
+[node name="Hacking" parent="Camera2D" unique_id=1395979406 instance=ExtResource("7_sm1md")]
+visible = false
+offset_left = -824.0
+offset_right = 822.0
+script = ExtResource("8_0terj")
+
 [node name="DoorArea2d" parent="." unique_id=1879306825 instance=ExtResource("5_sm1md")]
 ConnectedRoom = "res://Levels/Level1/level_4.tscn"
 PlayerPos = Vector2(947, -51)
@@ -1629,3 +1677,5 @@ PlayerPos = Vector2(947, -51)
 position = Vector2(-605, 4)
 scale = Vector2(1, 7.599998)
 shape = SubResource("RectangleShape2D_nu5vv")
+
+[editable path="Enemies/Sniper"]

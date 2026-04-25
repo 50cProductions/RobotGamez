@@ -17,8 +17,12 @@ var point_positions: Array[Vector2]
 var current_point: Vector2
 var current_point_position: int
 
-
-func _ready():
+var original_pos: Vector2
+func _ready() -> void:
+	Taskmanager.computer_hacked.connect(hacked)
+	if !Taskmanager.hacked:
+		original_pos = global_position
+		position = Vector2(100000, 1000000)
 	if movement_range != null:
 		range_size = movement_range.get_children().size()
 		for point in movement_range.get_children():
@@ -28,3 +32,6 @@ func _ready():
 		print("No movement range defined")
 	
 	timer.wait_time = wait_time
+
+func hacked():
+	position = original_pos

@@ -22,12 +22,16 @@ var robot_equipped: String
 signal spiked
 signal computer_hacked
 
+#computer
+var hacked: bool = false
+
 #Player Stats
 var max_health: int = 100
 var current_health: int = 100
 var lives: int = 3
 var start_position: Vector2
 
+signal player_respawn
 signal health_changed(new_value)
 
 #Room Changing System

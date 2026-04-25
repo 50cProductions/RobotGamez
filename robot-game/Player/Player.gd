@@ -261,6 +261,8 @@ func handle_respawn():
 		Taskmanager.current_health = Taskmanager.max_health
 		_update_health_ui()
 		get_tree().reload_current_scene()
+		Taskmanager.player_respawn.emit()
+		print("eim")
 	else:
 		game_over()
 
