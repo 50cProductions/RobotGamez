@@ -14,10 +14,14 @@ size = Vector2(75, 85)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hagnb"]
 size = Vector2(216, 279)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a52ww"]
+size = Vector2(83.25, 88)
+
 [node name="Robo" type="CharacterBody2D" unique_id=94115652 groups=["enemy"]]
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_2rc14")
+damage_amount = null
 
 [node name="MeshInstance2D" type="Sprite2D" parent="." unique_id=62556277]
 position = Vector2(0, -21)
@@ -59,5 +63,15 @@ scale = Vector2(2.6399999, 1)
 shape = SubResource("RectangleShape2D_hagnb")
 debug_color = Color(0.9477455, 0.20789403, 0.26171806, 0.41960785)
 
+[node name="HurtBox" type="Area2D" parent="." unique_id=1128005977]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1784435438]
+position = Vector2(5, -23)
+shape = SubResource("RectangleShape2D_a52ww")
+debug_color = Color(2.8397144e-06, 0.6383454, 0.38420367, 0.41960785)
+
 [connection signal="body_entered" from="DetectionArea" to="StateMachineController" method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="StateMachineController" method="_on_detection_area_body_exited"]
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
