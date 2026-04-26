@@ -15,10 +15,10 @@ func on_process(delta: float):
 func on_physics_process(delta: float) -> void:
 	var direction: int
 	
-	if sniper.global_position > player.global_position:
+	if sniper.global_position.x > player.global_position.x:
 		direction = -1
 		sprite.flip_h = true
-	elif sniper.global_position < player.global_position:
+	elif sniper.global_position.x < player.global_position.x:
 		direction = 1
 		sprite.flip_h = false
 	if direction > 0:
@@ -39,10 +39,9 @@ func action_shoot(delta: float, direction: int):
 	var offset = player.global_position + Vector2(0, -16)
 	var dir_to_player = (offset - sniper.shoot_marker.global_position).normalized()
 	bullet_instance.direction = dir_to_player
+	get_tree().current_scene.add_child(bullet_instance)
 	bullet_instance.global_position = sniper.shoot_marker.global_position
 	bullet_instance.rotation = dir_to_player.angle()
-	
-	sniper.get_parent().add_child(bullet_instance)
 	
 
 func enter():

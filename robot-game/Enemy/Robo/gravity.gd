@@ -6,7 +6,6 @@ const GRAVITY = 1000
 
 func _physics_process(delta: float) -> void:
 	apply_gravity(delta)
-	char_body_2d.move_and_slide()
 
 func apply_gravity(delta):
 	if !char_body_2d.is_on_floor():
