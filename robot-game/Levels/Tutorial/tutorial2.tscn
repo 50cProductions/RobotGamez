@@ -1662,7 +1662,6 @@ scale = Vector2(4, 4)
 [node name="Robo" parent="Enemies" unique_id=94115652 instance=ExtResource("4_vvgsg")]
 position = Vector2(-1113.25, -146.5)
 scale = Vector2(0.25, 0.25)
-damage_amount = null
 
 [node name="Sniper" parent="Enemies" unique_id=2021790975 instance=ExtResource("5_mwkd0")]
 position = Vector2(-833, -146.5)

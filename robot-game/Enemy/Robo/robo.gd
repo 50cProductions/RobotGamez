@@ -15,7 +15,7 @@ func _ready() -> void:
 	
 
 func hacked():
-	position = original_pos
+	global_position = original_pos
 
 
 func take_damage(damage: float, posi: Vector2):

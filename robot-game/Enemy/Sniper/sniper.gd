@@ -27,7 +27,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func hacked():
-	position = original_pos
+	global_position = original_pos
 	
 func take_damage(damage: float, posi: Vector2):
 	current_health -= damage
