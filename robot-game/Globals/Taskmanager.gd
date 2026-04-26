@@ -23,7 +23,7 @@ signal spiked
 signal computer_hacked
 
 #computer
-var hacked: bool = true
+var hacked: bool = false
 
 #Player Stats
 var max_health: int = 100
