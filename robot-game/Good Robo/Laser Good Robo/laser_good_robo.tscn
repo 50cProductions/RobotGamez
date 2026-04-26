@@ -1,22 +1,40 @@
-[gd_scene format=3 uid="uid://d2ep25ue0dr8e"]
+[gd_scene load_steps=8 format=3 uid="uid://d2ep25ue0dr8e"]
 
 [ext_resource type="Script" uid="uid://dah5usbx5vpr5" path="res://Good Robo/Laser Good Robo/laser_good_robo.gd" id="1_script"]
 [ext_resource type="Script" uid="uid://dbx42to8dvmcy" path="res://Good Robo/Laser Good Robo/gravity.gd" id="2_xi203"]
+[ext_resource type="Texture2D" uid="uid://bnfcnrxjlrwx6" path="res://Good Robo/Laser Good Robo/goodrobolaser.png" id="3_texture"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_0b285"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_idle"]
+atlas = ExtResource("3_texture")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_idle"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idle")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kdtnu"]
-size = Vector2(20, 29)
+size = Vector2(40, 60)
 
 [node name="LaserGoodRobo" type="CharacterBody2D" unique_id=1826689140]
 collision_layer = 8
 script = ExtResource("1_script")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1987849441]
-scale = Vector2(20.250002, 29.25)
-mesh = SubResource("BoxMesh_0b285")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1987849441]
+position = Vector2(0, -75)
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_idle")
+animation = &"idle"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=758365978]
+position = Vector2(0, -30)
 shape = SubResource("RectangleShape2D_kdtnu")
 
 [node name="Gravity" type="Node" parent="." unique_id=1577616684 node_paths=PackedStringArray("char_body_2d")]

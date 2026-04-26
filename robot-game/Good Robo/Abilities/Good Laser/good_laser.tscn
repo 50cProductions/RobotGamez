@@ -7,7 +7,7 @@ _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.5), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_beam"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0.8, 1, 0.5)
+colors = PackedColorArray(1, 1, 1, 1, 0, 1, 0.2, 0.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_beam"]
 size = Vector2(2000, 40)
