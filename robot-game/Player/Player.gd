@@ -300,10 +300,9 @@ func get_damage_amount():
 	return slash_damage
 
 func _on_hurt_box_body_entered(body: Node2D) -> void:
-	print("entered enemy")
 	if body.is_in_group("enemy"):
-		print("dealing damage")
-		take_damage(body.damage_amount, global_position)
+		if body.damage_amount:
+			take_damage(body.damage_amount, global_position)
 		
 
 
