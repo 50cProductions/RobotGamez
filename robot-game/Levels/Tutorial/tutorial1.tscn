@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c05dos5uqad4d" path="res://Player/Player.tscn" id="2_3hyu5"]
 [ext_resource type="Texture2D" uid="uid://dalulkfqw4et3" path="res://Assets/Tiles/Envir.png" id="2_q3ps8"]
 [ext_resource type="PackedScene" uid="uid://b7216ahuwisg5" path="res://Misc/door_area_2d.tscn" id="3_3hyu5"]
-[ext_resource type="PackedScene" uid="uid://m1tdyuomftdc" path="res://Misc/goal.tscn" id="5_1wy1q"]
+[ext_resource type="PackedScene" path="res://Misc/goal.tscn" id="5_1wy1q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1wy1q"]
 texture = ExtResource("2_q3ps8")
@@ -820,6 +820,15 @@ offset_right = 493.0
 offset_bottom = -245.0
 text = "W A S D to move
 Space to Jump"
+
+[node name="Label2" type="Label" parent="." unique_id=720344025]
+modulate = Color(1, 1, 1, 0.45882353)
+offset_left = -90.0
+offset_top = -205.0
+offset_right = 1170.0
+offset_bottom = -102.0
+theme_override_font_sizes/font_size = 25
+text = "Mission: Hack the computer and kill Robos"
 
 [node name="Player" parent="." unique_id=1816955753 node_paths=PackedStringArray("camera") instance=ExtResource("2_3hyu5")]
 position = Vector2(112, -26)

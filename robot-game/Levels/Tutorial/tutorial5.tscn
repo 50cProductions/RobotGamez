@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b7216ahuwisg5" path="res://Misc/door_area_2d.tscn" id="6_dcxet"]
 [ext_resource type="PackedScene" uid="uid://dhxjafeqgfy68" path="res://Misc/computer.tscn" id="7_mwhjm"]
 [ext_resource type="PackedScene" uid="uid://bmmq0owdihcke" path="res://Misc/hacking.tscn" id="9_dcxet"]
-[ext_resource type="Script" uid="uid://c6fppn05k6rmh" path="res://Misc/hacking.gd" id="10_1ccpg"]
+[ext_resource type="Script" path="res://Misc/hacking.gd" id="10_1ccpg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n82dt"]
 texture = ExtResource("3_rhu0n")
@@ -1676,6 +1676,7 @@ scale = Vector2(0.6799997, 3.1599994)
 
 [node name="Robo" parent="Enemies" unique_id=1723506200 instance=ExtResource("5_dcxet")]
 position = Vector2(-1157, 166)
+damage_amount = 40
 
 [node name="Computer" parent="." unique_id=1555300069 instance=ExtResource("7_mwhjm")]
 position = Vector2(-336, -699)
@@ -1707,6 +1708,16 @@ PlayerPos = Vector2(-721, 274)
 position = Vector2(1200, -75)
 scale = Vector2(1, 7.599998)
 shape = SubResource("RectangleShape2D_133gw")
+
+[node name="Label" type="Label" parent="." unique_id=1401131015]
+offset_left = -90.0
+offset_top = -891.0
+offset_right = 563.0
+offset_bottom = -786.0
+theme_override_font_sizes/font_size = 25
+text = "After Hacking.
+Press R or T to call Robo For Help.
+Press X to send them back."
 
 [editable path="Traps_Container/Spikes26"]
 [editable path="Traps_Container/Spikes32"]
