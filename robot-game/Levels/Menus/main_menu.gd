@@ -25,9 +25,9 @@ func _ready() -> void:
 	Taskmanager.hacked = false
 	animation.play("TitleMove")
 	container_anim.play("Main")
-	$CenterContainer/Settings/MasterVolSlider.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")))
-	$CenterContainer/Settings/MusicVolSlider.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")))
-	$CenterContainer/Settings/SFXVolSlider.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX")))
+	$CenterContainer/Settings/Node2D/MasterVolSlider.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")))
+	$CenterContainer/Settings/Node2D/MusicVolSlider.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")))
+	$CenterContainer/Settings/Node2D/SFXVolSlider.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX")))
 	
 
 func _process(delta: float) -> void:
@@ -182,4 +182,8 @@ func _on_inven_activate_pressed() -> void:
 
 
 func _on_level_1_pressed() -> void:
-	get_tree().change_scene_to_file("res://UI/WinScreen.tscn")
+	get_tree().change_scene_to_file("res://Levels/Tutorial/tutorial1.tscn")
+
+
+func _on_level_2_pressed() -> void:
+	get_tree().change_scene_to_file("res://Levels/Level1/level1.tscn")

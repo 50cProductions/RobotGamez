@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c05dos5uqad4d" path="res://Player/Player.tscn" id="2_3hyu5"]
 [ext_resource type="Texture2D" uid="uid://dalulkfqw4et3" path="res://Assets/Tiles/Envir.png" id="2_q3ps8"]
 [ext_resource type="PackedScene" uid="uid://b7216ahuwisg5" path="res://Misc/door_area_2d.tscn" id="3_3hyu5"]
+[ext_resource type="PackedScene" uid="uid://m1tdyuomftdc" path="res://Misc/goal.tscn" id="5_1wy1q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1wy1q"]
 texture = ExtResource("2_q3ps8")
@@ -836,3 +837,11 @@ PlayerPos = Vector2(-678, 145)
 position = Vector2(1011, -115.50003)
 scale = Vector2(1, 7.599998)
 shape = SubResource("RectangleShape2D_q3ps8")
+
+[node name="Goal" parent="." unique_id=1873877356 instance=ExtResource("5_1wy1q")]
+position = Vector2(-280, 91)
+
+[node name="Sprite2D" parent="Goal" index="0" unique_id=1902117835]
+flip_h = true
+
+[editable path="Goal"]

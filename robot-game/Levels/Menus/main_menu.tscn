@@ -1,8 +1,16 @@
 [gd_scene format=3 uid="uid://c16x3sxwog8k8"]
 
 [ext_resource type="Script" uid="uid://dw7vj1gvjsi0q" path="res://Levels/Menus/main_menu.gd" id="1_akspc"]
+[ext_resource type="Texture2D" uid="uid://du142p0rqxqhl" path="res://Assets/UI/Pages/menu_main_bg.png" id="2_88u62"]
 [ext_resource type="Script" uid="uid://cwumpts8u6o2l" path="res://Misc/buttons.gd" id="2_akspc"]
 [ext_resource type="Script" uid="uid://ensd0kmdgv2" path="res://Misc/carousel_container.gd" id="3_lil1b"]
+[ext_resource type="Texture2D" uid="uid://bxc77ktvpo3r6" path="res://Assets/UI/Menus/level_card_01.webp" id="5_bnjmt"]
+[ext_resource type="Texture2D" uid="uid://cs7ixkhmon8t6" path="res://Assets/UI/Pages/menu_credits_bg.png" id="5_o6ot1"]
+[ext_resource type="Texture2D" uid="uid://v4318rupkpvx" path="res://Assets/UI/Pages/menu_levels_selection_bg.png" id="6_bh4ku"]
+[ext_resource type="Texture2D" uid="uid://cvvr20shtsqo0" path="res://Assets/UI/Pages/menu_robot_custom_bg.png" id="6_hmido"]
+[ext_resource type="Texture2D" uid="uid://dc3idd1yub4gd" path="res://Assets/UI/Menus/level_card_02.webp" id="6_k04y2"]
+[ext_resource type="Texture2D" uid="uid://crs0cupgimhtt" path="res://Assets/UI/Pages/menu_main_options_bg.png" id="7_bh4ku"]
+[ext_resource type="Texture2D" uid="uid://de34t8pvjiisr" path="res://Assets/UI/Pages/menu_settings_bg.png" id="8_bnjmt"]
 
 [sub_resource type="Animation" id="Animation_xvt5i"]
 resource_name = "new_animation"
@@ -68,7 +76,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(550, 212)]
+"values": [Vector2(555, 112)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -141,6 +149,18 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../MenuMainBg:texture")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_o6ot1")]
 }
 
 [sub_resource type="Animation" id="Animation_5qvx8"]
@@ -155,7 +175,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(617, 260)]
+"values": [Vector2(672, 394)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -228,6 +248,18 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../MenuMainBg:texture")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_88u62")]
 }
 
 [sub_resource type="Animation" id="Animation_88u62"]
@@ -339,6 +371,18 @@ tracks/8/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(247, -17)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../MenuMainBg:texture")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_bh4ku")]
 }
 
 [sub_resource type="Animation" id="Animation_hllw6"]
@@ -511,6 +555,18 @@ tracks/13/keys = {
 "update": 0,
 "values": [Vector2(-555, 531)]
 }
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("../MenuMainBg:texture")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_88u62")]
+}
 
 [sub_resource type="Animation" id="Animation_yfa8v"]
 resource_name = "RobotDetails"
@@ -605,10 +661,10 @@ tracks/7/path = NodePath("Robots/Craft:modulate")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -617,10 +673,10 @@ tracks/8/path = NodePath("Robots/Desc:modulate")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -632,7 +688,7 @@ tracks/9/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(0.314, 1),
 "update": 0,
-"values": [Vector2(329, 463), Vector2(329, 584)]
+"values": [Vector2(329, 463), Vector2(341, 481)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
@@ -645,6 +701,18 @@ tracks/10/keys = {
 "transitions": PackedFloat32Array(0.314, 1),
 "update": 0,
 "values": [Vector2(-555, 531), Vector2(-555, 653)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../MenuMainBg:texture")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_hmido")]
 }
 
 [sub_resource type="Animation" id="Animation_8a4s3"]
@@ -832,6 +900,18 @@ tracks/6/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../MenuMainBg:texture")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_bh4ku")]
+}
 
 [sub_resource type="Animation" id="Animation_qor8d"]
 resource_name = "Settings"
@@ -918,6 +998,18 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../MenuMainBg:texture")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_bnjmt")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6e2af"]
@@ -1152,10 +1244,10 @@ _data = {
 [node name="MainMenu" type="Node2D" unique_id=1320615609]
 script = ExtResource("1_akspc")
 
-[node name="TitleScreen" type="Sprite2D" parent="." unique_id=452794945]
-modulate = Color(0.8242385, 0.8242385, 0.8242385, 1)
-position = Vector2(576.00006, 324)
-scale = Vector2(0.19999999, 0.19999996)
+[node name="MenuMainBg" type="Sprite2D" parent="." unique_id=160053992]
+position = Vector2(576, 326)
+scale = Vector2(0.6, 0.5962963)
+texture = ExtResource("2_88u62")
 
 [node name="Credits_text" type="RichTextLabel" parent="." unique_id=186374635]
 offset_top = 688.0
@@ -1179,13 +1271,10 @@ Mohit
 ART BY
 Milkay
 
-MUSIC BY
-remember_HP
-
 EXTERNAL ASSETS USED
 Tileset - 
 Font - Planetary Contact
-SFX - 
+MUSIC - Epidemic Sound 
 
 
 
@@ -1202,25 +1291,35 @@ horizontal_alignment = 1
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1878128456]
 offset_left = 680.0
 offset_top = 392.0
-offset_right = 1349.0
+offset_right = 1152.0
 offset_bottom = 848.0
 
 [node name="Main" type="VBoxContainer" parent="CenterContainer" unique_id=1327256896]
 layout_mode = 2
 
-[node name="Start" type="Button" parent="CenterContainer/Main" unique_id=1301002987]
-layout_mode = 2
-text = "START"
+[node name="Node2D" type="Node2D" parent="CenterContainer/Main" unique_id=1984993099]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(98, 0)
+
+[node name="Start" type="Button" parent="CenterContainer/Main/Node2D" unique_id=1301002987]
+offset_left = -567.0
+offset_top = -269.0
+offset_right = -299.0
+offset_bottom = -211.0
 script = ExtResource("2_akspc")
 
-[node name="Settings" type="Button" parent="CenterContainer/Main" unique_id=263949421]
-layout_mode = 2
-text = "SETTINGS"
+[node name="Settings" type="Button" parent="CenterContainer/Main/Node2D" unique_id=263949421]
+offset_left = -136.0
+offset_top = -232.0
+offset_right = 132.0
+offset_bottom = -174.0
 script = ExtResource("2_akspc")
 
-[node name="Credits" type="Button" parent="CenterContainer/Main" unique_id=2141277365]
-layout_mode = 2
-text = "CREDITS"
+[node name="Credits" type="Button" parent="CenterContainer/Main/Node2D" unique_id=2141277365]
+offset_left = -1003.0
+offset_top = -233.0
+offset_right = -770.0
+offset_bottom = -175.0
 script = ExtResource("2_akspc")
 
 [node name="Settings" type="VBoxContainer" parent="CenterContainer" unique_id=18170600]
@@ -1228,14 +1327,23 @@ visible = false
 layout_mode = 2
 theme_override_constants/separation = -15
 
-[node name="Fullscreen" type="CheckBox" parent="CenterContainer/Settings" unique_id=1856308412]
-layout_mode = 2
+[node name="Node2D" type="Node2D" parent="CenterContainer/Settings" unique_id=1544478728]
+position = Vector2(105, 0)
+
+[node name="Fullscreen" type="CheckBox" parent="CenterContainer/Settings/Node2D" unique_id=1856308412]
+modulate = Color(1, 1, 1, 0)
+offset_left = -174.0
+offset_top = -109.0
+offset_right = 194.0
+offset_bottom = -51.0
 button_pressed = true
 text = "FULLSCREEN"
 
-[node name="Label" type="Label" parent="CenterContainer/Settings" unique_id=976794197]
+[node name="Label" type="Label" parent="CenterContainer/Settings/Node2D" unique_id=976794197]
 modulate = Color(1, 1, 1, 0)
-layout_mode = 2
+offset_top = 43.0
+offset_right = 368.0
+offset_bottom = 131.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 0
 theme_override_constants/shadow_offset_y = 0
@@ -1243,75 +1351,36 @@ theme_override_constants/shadow_outline_size = 0
 theme_override_font_sizes/font_size = 70
 text = "."
 
-[node name="MasterVolSlider" type="HSlider" parent="CenterContainer/Settings" unique_id=5053717]
-layout_mode = 2
+[node name="MasterVolSlider" type="HSlider" parent="CenterContainer/Settings/Node2D" unique_id=5053717]
+offset_left = -824.0
+offset_top = -153.0
+offset_right = -456.0
+offset_bottom = -137.0
 max_value = 1.0
 step = 0.001
 
-[node name="Label" type="Label" parent="CenterContainer/Settings/MasterVolSlider" unique_id=154399838]
-layout_mode = 0
-offset_left = 37.0
-offset_top = -43.0
-offset_right = 431.0
-offset_bottom = 26.0
-theme_override_font_sizes/font_size = 33
-text = "Master Vol"
+[node name="MusicVolSlider" type="HSlider" parent="CenterContainer/Settings/Node2D" unique_id=678149096]
+offset_left = -825.0
+offset_top = -267.0
+offset_right = -457.0
+offset_bottom = -251.0
+max_value = 1.0
+step = 0.001
 
-[node name="Label2" type="Label" parent="CenterContainer/Settings" unique_id=1167924084]
+[node name="SFXVolSlider" type="HSlider" parent="CenterContainer/Settings/Node2D" unique_id=1182837880]
+offset_left = -822.0
+offset_top = -40.0
+offset_right = -454.0
+offset_bottom = -24.0
+max_value = 1.0
+step = 0.001
+
+[node name="Back" type="Button" parent="CenterContainer/Settings/Node2D" unique_id=1832033796]
 modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 0
-theme_override_constants/shadow_outline_size = 0
-theme_override_font_sizes/font_size = 70
-text = "."
-
-[node name="MusicVolSlider" type="HSlider" parent="CenterContainer/Settings" unique_id=678149096]
-layout_mode = 2
-max_value = 1.0
-step = 0.001
-
-[node name="Label" type="Label" parent="CenterContainer/Settings/MusicVolSlider" unique_id=347042457]
-layout_mode = 0
-offset_left = 37.0
-offset_top = -43.0
-offset_right = 431.0
-offset_bottom = 26.0
-theme_override_font_sizes/font_size = 33
-text = "Music Vol"
-
-[node name="Label3" type="Label" parent="CenterContainer/Settings" unique_id=473217716]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 0
-theme_override_constants/shadow_outline_size = 0
-theme_override_font_sizes/font_size = 70
-text = "."
-
-[node name="SFXVolSlider" type="HSlider" parent="CenterContainer/Settings" unique_id=1182837880]
-layout_mode = 2
-max_value = 1.0
-step = 0.001
-
-[node name="Label" type="Label" parent="CenterContainer/Settings/SFXVolSlider" unique_id=2070970943]
-layout_mode = 0
-offset_left = 37.0
-offset_top = -43.0
-offset_right = 431.0
-offset_bottom = 26.0
-theme_override_font_sizes/font_size = 33
-text = "SFX Vol"
-
-[node name="Label4" type="Label" parent="CenterContainer/Settings" unique_id=1325123231]
-layout_mode = 2
-theme_override_font_sizes/font_size = 33
-text = " "
-
-[node name="Back" type="Button" parent="CenterContainer/Settings" unique_id=1832033796]
-layout_mode = 2
+offset_left = 10.0
+offset_top = -1.0
+offset_right = 158.0
+offset_bottom = 57.0
 size_flags_horizontal = 4
 text = "BACK
 "
@@ -1345,6 +1414,7 @@ theme_override_font_sizes/font_size = 1
 text = "asiuiashdbdjhaevdhjvjasvfjavdjhcv jav sjhcvjachasjhcvajshcvjcsavjasiuiashdbdjhaevdhjvjasvfjavdjhcv jav sjhcvjachasjhcvajshcvjcsavjasiuiashdbdjhaevdhjvjasvfjavdjhcv jav sjhcvjachasjhcvajshcvjcsavjasiuiashdbdjhaevdhjvjasvfjavdjhcv jav sjhcvjachasjhcvajshcvjcsavjasiuiashdbdjhaevdhjvjasvfjavdjhcv jav sjhcvjachasjhcvajshcvjcsavjasiuiashdbdjhaevdhjvjasvfjavdjhcv jav sjhcvjachasjhcvajshcvjcsavj"
 
 [node name="Back" type="Button" parent="CenterContainer/Credits/HBoxContainer" unique_id=1997738782]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "BACK
@@ -1355,21 +1425,30 @@ script = ExtResource("2_akspc")
 layout_mode = 2
 theme_override_constants/separation = 60
 
-[node name="Missions" type="Button" parent="CenterContainer/Select" unique_id=1428276386]
-layout_mode = 2
-text = "Mission"
+[node name="Node2D" type="Node2D" parent="CenterContainer/Select" unique_id=529903962]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(99, 0)
+
+[node name="Missions" type="Button" parent="CenterContainer/Select/Node2D" unique_id=1428276386]
+offset_left = -450.0
+offset_top = -137.0
+offset_right = -227.0
+offset_bottom = -79.0
 script = ExtResource("2_akspc")
 
-[node name="Robots" type="Button" parent="CenterContainer/Select" unique_id=1618087258]
-layout_mode = 2
-text = "Robot"
+[node name="Robots" type="Button" parent="CenterContainer/Select/Node2D" unique_id=1618087258]
+offset_left = 82.0
+offset_top = -134.0
+offset_right = 260.0
+offset_bottom = -76.0
 script = ExtResource("2_akspc")
 
-[node name="Back" type="Button" parent="CenterContainer/Select" unique_id=689190773]
-layout_mode = 2
+[node name="Back" type="Button" parent="CenterContainer/Select/Node2D" unique_id=689190773]
+offset_left = 244.0
+offset_top = 93.0
+offset_right = 392.0
+offset_bottom = 151.0
 size_flags_horizontal = 4
-text = "BACK
-"
 script = ExtResource("2_akspc")
 
 [node name="Robots" type="Node2D" parent="CenterContainer" unique_id=1217908141 node_paths=PackedStringArray("position_offset_node")]
@@ -1456,6 +1535,7 @@ offset_bottom = 371.0
 text = " > "
 
 [node name="BackSelect" type="Button" parent="CenterContainer/Robots" unique_id=265961145]
+modulate = Color(1, 1, 1, 0)
 offset_left = 329.0
 offset_top = 463.0
 offset_right = 477.0
@@ -1476,10 +1556,10 @@ horizontal_alignment = 1
 
 [node name="Craft" type="Button" parent="CenterContainer/Robots" unique_id=34765444]
 z_index = 1
-offset_left = -110.0
-offset_top = 586.0
-offset_right = 113.0
-offset_bottom = 644.0
+offset_left = 300.0
+offset_top = 381.0
+offset_right = 523.0
+offset_bottom = 439.0
 pivot_offset = Vector2(111.5, 29)
 text = "Craft"
 script = ExtResource("2_akspc")
@@ -1542,85 +1622,41 @@ libraries/ = SubResource("AnimationLibrary_hmido")
 visible = false
 position = Vector2(247, -17)
 script = ExtResource("3_lil1b")
+selected_index = 1
 position_offset_node = NodePath("Control")
 metadata/_custom_type_script = "uid://ensd0kmdgv2"
 
 [node name="Control" type="Control" parent="CenterContainer/Missions" unique_id=483468726]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -111.5
+offset_left = -632.0
 offset_top = 245.0
-offset_right = -71.50003
+offset_right = -592.00006
 offset_bottom = 285.0
 
 [node name="Level1" type="Button" parent="CenterContainer/Missions/Control" unique_id=1304532444]
-z_index = 1
-layout_mode = 0
-offset_top = -29.0
-offset_right = 223.0
-offset_bottom = 29.0
-pivot_offset = Vector2(111.5, 29)
-text = "Mission"
-script = ExtResource("2_akspc")
-
-[node name="Level2" type="Button" parent="CenterContainer/Missions/Control" unique_id=1211655380]
 modulate = Color(1, 1, 1, 0.65)
 z_index = -1
 layout_mode = 0
-offset_left = 243.0
-offset_top = -29.0
-offset_right = 466.0
-offset_bottom = 29.0
+offset_top = -154.0
+offset_right = 408.0
+offset_bottom = 154.0
 scale = Vector2(0.75, 0.75)
-pivot_offset = Vector2(111.5, 29)
+pivot_offset = Vector2(204, 154)
 focus_mode = 0
 mouse_filter = 2
-text = "Mission"
+icon = ExtResource("5_bnjmt")
 script = ExtResource("2_akspc")
 
-[node name="Level3" type="Button" parent="CenterContainer/Missions/Control" unique_id=1997218902]
-modulate = Color(1, 1, 1, 0.3)
-z_index = -2
+[node name="Level2" type="Button" parent="CenterContainer/Missions/Control" unique_id=2054459844]
+z_index = 1
 layout_mode = 0
-offset_left = 486.0
-offset_top = -29.0
-offset_right = 709.0
-offset_bottom = 29.0
-scale = Vector2(0.5, 0.5)
-pivot_offset = Vector2(111.5, 29)
-focus_mode = 0
-mouse_filter = 2
-text = "Mission"
-script = ExtResource("2_akspc")
-
-[node name="Level4" type="Button" parent="CenterContainer/Missions/Control" unique_id=1978047507]
-modulate = Color(1, 1, 1, 0)
-z_index = -3
-layout_mode = 0
-offset_left = 729.0
-offset_top = -29.0
-offset_right = 952.0
-offset_bottom = 29.0
-scale = Vector2(0.25, 0.25)
-pivot_offset = Vector2(111.5, 29)
-focus_mode = 0
-mouse_filter = 2
-text = "Mission"
-script = ExtResource("2_akspc")
-
-[node name="Level5" type="Button" parent="CenterContainer/Missions/Control" unique_id=698343063]
-modulate = Color(1, 1, 1, 0)
-z_index = -4
-layout_mode = 0
-offset_left = 972.0
-offset_top = -29.0
-offset_right = 1195.0
-offset_bottom = 29.0
-scale = Vector2(0.1, 0.1)
-pivot_offset = Vector2(111.5, 29)
-focus_mode = 0
-mouse_filter = 2
-text = "Mission"
+offset_left = 428.0
+offset_top = -154.0
+offset_right = 836.0
+offset_bottom = 154.0
+pivot_offset = Vector2(204, 154)
+icon = ExtResource("6_k04y2")
 script = ExtResource("2_akspc")
 
 [node name="Left" type="Button" parent="CenterContainer/Missions" unique_id=1724708240]
@@ -1638,10 +1674,11 @@ offset_bottom = 371.0
 text = " > "
 
 [node name="BackSelect" type="Button" parent="CenterContainer/Missions" unique_id=906494175]
-offset_left = 329.0
-offset_top = 463.0
-offset_right = 477.0
-offset_bottom = 521.0
+modulate = Color(1, 1, 1, 0)
+offset_left = 365.0
+offset_top = 346.0
+offset_right = 513.0
+offset_bottom = 404.0
 size_flags_horizontal = 4
 text = "BACK
 "
@@ -1687,24 +1724,25 @@ volume_db = -10.0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[connection signal="pressed" from="CenterContainer/Main/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="CenterContainer/Main/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="CenterContainer/Main/Credits" to="." method="_on_credits_pressed"]
-[connection signal="toggled" from="CenterContainer/Settings/Fullscreen" to="." method="_on_fullscreen_toggled"]
-[connection signal="value_changed" from="CenterContainer/Settings/MasterVolSlider" to="." method="_on_master_vol_slider_value_changed"]
-[connection signal="value_changed" from="CenterContainer/Settings/MusicVolSlider" to="." method="_on_music_vol_slider_value_changed"]
-[connection signal="value_changed" from="CenterContainer/Settings/SFXVolSlider" to="." method="_on_sfx_vol_slider_value_changed"]
-[connection signal="pressed" from="CenterContainer/Settings/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="CenterContainer/Main/Node2D/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CenterContainer/Main/Node2D/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="CenterContainer/Main/Node2D/Credits" to="." method="_on_credits_pressed"]
+[connection signal="toggled" from="CenterContainer/Settings/Node2D/Fullscreen" to="." method="_on_fullscreen_toggled"]
+[connection signal="value_changed" from="CenterContainer/Settings/Node2D/MasterVolSlider" to="." method="_on_master_vol_slider_value_changed"]
+[connection signal="value_changed" from="CenterContainer/Settings/Node2D/MusicVolSlider" to="." method="_on_music_vol_slider_value_changed"]
+[connection signal="value_changed" from="CenterContainer/Settings/Node2D/SFXVolSlider" to="." method="_on_sfx_vol_slider_value_changed"]
+[connection signal="pressed" from="CenterContainer/Settings/Node2D/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="CenterContainer/Credits/HBoxContainer/Back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="CenterContainer/Select/Missions" to="." method="_on_missions_pressed"]
-[connection signal="pressed" from="CenterContainer/Select/Robots" to="." method="_on_robots_pressed"]
-[connection signal="pressed" from="CenterContainer/Select/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="CenterContainer/Select/Node2D/Missions" to="." method="_on_missions_pressed"]
+[connection signal="pressed" from="CenterContainer/Select/Node2D/Robots" to="." method="_on_robots_pressed"]
+[connection signal="pressed" from="CenterContainer/Select/Node2D/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="CenterContainer/Robots/Left" to="CenterContainer/Robots" method="_on_left_pressed"]
 [connection signal="pressed" from="CenterContainer/Robots/Right" to="CenterContainer/Robots" method="_on_right_pressed"]
 [connection signal="pressed" from="CenterContainer/Robots/BackSelect" to="." method="_on_back_select_pressed"]
 [connection signal="pressed" from="CenterContainer/Robots/Craft" to="." method="_on_craft_pressed"]
 [connection signal="pressed" from="CenterContainer/Robots/Inventory/InvenActivate" to="." method="_on_inven_activate_pressed"]
 [connection signal="pressed" from="CenterContainer/Missions/Control/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="CenterContainer/Missions/Control/Level2" to="." method="_on_level_2_pressed"]
 [connection signal="pressed" from="CenterContainer/Missions/Left" to="CenterContainer/Missions" method="_on_left_pressed"]
 [connection signal="pressed" from="CenterContainer/Missions/Right" to="CenterContainer/Missions" method="_on_right_pressed"]
 [connection signal="pressed" from="CenterContainer/Missions/BackSelect" to="." method="_on_back_select_pressed"]

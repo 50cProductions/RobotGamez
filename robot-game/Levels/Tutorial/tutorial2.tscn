@@ -1671,6 +1671,9 @@ scale = Vector2(0.25, 0.25)
 [node name="CollisionShape2D" parent="Enemies/Sniper/DetectionArea" parent_id_path=PackedInt32Array(2021790975, 2089762723) index="0" unique_id=883000723]
 scale = Vector2(25.676247, 3.731957)
 
+[node name="Initial Shoot" parent="Enemies/Sniper" index="6" unique_id=711414762]
+position = Vector2(32, -13)
+
 [node name="Player" parent="." unique_id=1816955753 node_paths=PackedStringArray("camera") instance=ExtResource("4_mwkd0")]
 position = Vector2(-182, -45)
 camera = NodePath("../Camera2D")
