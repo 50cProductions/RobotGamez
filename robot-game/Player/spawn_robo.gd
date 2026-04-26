@@ -8,8 +8,9 @@ var telekinesis_good_robo_scene = load("res://Good Robo/Telekinesis Good Robo/te
 var current_robo: Node2D
 
 func _physics_process(_delta: float) -> void:
-	handle_spawn()
-	handle_despawn()
+	if Taskmanager.hacked:
+		handle_spawn()
+		handle_despawn()
 
 func handle_despawn() -> void:
 	if Input.is_action_just_pressed("despawn_robo") and player.robo_available:
